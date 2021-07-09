@@ -33,7 +33,12 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 "Multi cursor
 Plug 'terryma/vim-multiple-cursors'
+"Typescript/JavaScript
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Gutter indications
+Plug 'dense-analysis/ale'
+"Rust
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 "COPY/PASTE:
@@ -88,14 +93,16 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "FILE SEARCH:
 "------------
 "allows FZF to open by pressing CTRL-P
-map <C-p> :FZF<CR>
+map <C-p> :Files<CR>
 "allow FZF to search hidden 'dot' files
-let $FZF_DEFAULT_COMMAND = "find -L"
+let $FZF_DEFAULT_COMMAND = "fd --type file"
 
 "FILE BROWSER:
 "-------------
 "allows NERDTree to open/close by typing 'n' then 't'
 map nt :NERDTreeTabsToggle<CR>
+"allows NERDTree to toggle focus by typing 'n' then 'f'
+map nf :NERDTreeFocusToggle<CR>
 "Start NERDtree when dir is selected (e.g. "vim .") and start NERDTreeTabs
 let g:nerdtree_tabs_open_on_console_startup=2
 "Add a close button in the upper right for tabs
@@ -160,4 +167,22 @@ syntax on
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 " Highlight the current line the cursor is on
+
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
+
+"Prettier to format current Buffer
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
 set cursorline
