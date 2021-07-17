@@ -99,7 +99,24 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$HOME/.local/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# alias eev="export $(grep -v '^#' .env | xargs -0)"
+alias nv="nvim"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+# exa is replacement for "ls"
+if command -v exa > /dev/null; then
+	alias l="exa"
+	alias ls="exa"
+	alias ll="exa -l"
+	alias lll="exa -la"
+fi
 
