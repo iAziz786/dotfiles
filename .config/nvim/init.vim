@@ -19,7 +19,7 @@ Plug 'ryanoasis/vim-devicons'
 "Color:
 Plug 'morhetz/gruvbox'
 "Golang:
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 "Autocomplete:
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-go'
@@ -32,13 +32,17 @@ Plug 'SirVer/ultisnips'
 "Git:
 Plug 'tpope/vim-fugitive'
 "Multi cursor
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "Typescript/JavaScript
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Gutter indications
 Plug 'dense-analysis/ale'
 "Rust
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
+" Native Neovim LSP
+Plug 'neovim/nvim-lspconfig'
+" Autocompletion lua plugin
+Plug 'hrsh7th/nvim-compe'
 call plug#end()
 
 "COPY/PASTE:
@@ -93,9 +97,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "FILE SEARCH:
 "------------
 "allows FZF to open by pressing CTRL-P
-map <C-p> :Files<CR>
+map <C-f> :Files<CR>
 "allow FZF to search hidden 'dot' files
 let $FZF_DEFAULT_COMMAND = "fd --type file"
+
+" Open currently opend buffers
+nmap <leader>; :Buffers<CR>
 
 "FILE BROWSER:
 "-------------
@@ -172,17 +179,31 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 nnoremap <leader><leader> <c-^>
 
 "Prettier to format current Buffer
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" vmap <leader>f <Plug>(coc-format-selected)
+" nmap <leader>f <Plug>(coc-format-selected)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <leader>rn <Plug>(coc-rename)
+
+" Undodir & Undofile - You can undo a closed file event after close
+set undodir=~/.vimdid
+set undofile
 
 set cursorline
+luafile ~/.config/nvim/lua/lang/go.lua
+luafile ~/.config/nvim/lua/lang/rust.lua
+luafile ~/.config/nvim/lua/lang/typescript.lua
+luafile ~/.config/nvim/lua/autocomplete.lua
+luafile ~/.config/nvim/lua/keybinding.lua
+
+autocmd BufWritePre *.go lua goimports(1000)
+autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+
