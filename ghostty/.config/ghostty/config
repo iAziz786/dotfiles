@@ -1,0 +1,15 @@
+# Theme, coz why not?
+theme = catppuccin-mocha
+
+# Font settings
+font-family = JetBrain Mono
+font-size = 16
+
+# Windows transparency
+background-opacity = 0.9
+background-blur = 10
+
+# MacOS Option is used as ALT which is causing Zellij Alt+n not work
+macos-option-as-alt = true
+keybind = alt+left=unbind
+keybind = alt+right=unbind
