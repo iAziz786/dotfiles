@@ -2,6 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 eval "$(starship init zsh)"
 
+export ZSH="$HOME/.oh-my-zsh"
+
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 
@@ -74,6 +76,8 @@ ARCH=$(uname -m)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git kubectl docker terraform aws)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
