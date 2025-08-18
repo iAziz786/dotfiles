@@ -161,8 +161,7 @@ if [[ "$OS" == "macos" ]]; then
     export PATH="/usr/local/opt/ruby/bin:$PATH"
   fi
 elif [[ "$OS" == "linux" ]]; then
-  [[ -d "/home/linuxbrew/.linuxbrew" ]] && export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-  [[ -d "$HOME/.linuxbrew" ]] && export PATH="$HOME/.linuxbrew/bin:$PATH"
+  [[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # Mise configuration
