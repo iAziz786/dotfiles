@@ -118,6 +118,9 @@ alias ls="exa -l --icons --git-ignore"
 
 alias nv="nvim"
 
+# Opening zellij
+alias zj="zellij"
+
 # Creating local tunnel, create URL at: https://iaziz786.loca.lt/
 alias "clt"="lt --port 8080 --subdomain iaziz786 &"
 
