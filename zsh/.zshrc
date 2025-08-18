@@ -143,7 +143,7 @@ elif [[ "$OS" == "linux" ]]; then
   [[ -d "/opt/nvim/bin" ]] && export PATH="$PATH:/opt/nvim/bin"
 fi
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
 
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
