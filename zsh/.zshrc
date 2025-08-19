@@ -113,7 +113,6 @@ command -v go &>/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
 
 # My Personal aliases
 alias "$"=""
-alias "c"="clear"
 alias ls="exa -l --icons --git-ignore"
 
 alias nv="nvim"
