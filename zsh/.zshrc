@@ -115,7 +115,7 @@ command -v go &>/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
 alias "$"=""
 alias ls="exa -l --icons --git-ignore"
 
-alias nv="nvim"
+alias n="nvim"
 
 # Opening zellij
 alias zj="zellij"
