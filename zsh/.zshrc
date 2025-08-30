@@ -123,6 +123,9 @@ alias zj="zellij"
 # Creating local tunnel, create URL at: https://iaziz786.loca.lt/
 alias "clt"="lt --port 8080 --subdomain iaziz786 &"
 
+# Add zig if exist
+[[ -d "$HOME/.zig" ]] && export PATH="$PATH:$HOME/.zig"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
