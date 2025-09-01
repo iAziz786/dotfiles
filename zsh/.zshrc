@@ -128,6 +128,10 @@ alias "clt"="lt --port 8080 --subdomain iaziz786 &"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add work related changes
+[ -f ~/.work.sh ] && source ~/.work.sh
+
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 [ -f ~/.env ] && source ~/.env
