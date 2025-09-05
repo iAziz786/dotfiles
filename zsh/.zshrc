@@ -194,3 +194,7 @@ help() {
   "$@" --help 2>&1 | bathelp
 }
 
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
