@@ -113,7 +113,10 @@ command -v go &>/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
 
 # My Personal aliases
 alias "$"=""
-alias ls="exa -l --icons --git-ignore"
+export EZA_CONFIG_DIR=$HOME/.config/eza
+alias ls="eza --all --long --icons --git"
+alias lt="eza --all --tree ---level=2 --icons --git"
+
 
 alias n="nvim"
 
