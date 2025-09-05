@@ -8,9 +8,14 @@ They sync so nicely and I immediately get the changes. I use an awesome
 terminal application called [WezTerm][wezterm-link]. It's an incredible
 terminal with so much customization.
 
+For easy setup run:
+
+```sh
+./setup.sh
+```
+
 I hope you create your own good looking terminal. Which you might want to use
 everyday. I certainly enjoy mine.
 
 [stow-link]: https://www.gnu.org/software/stow/
 [wezterm-link]: https://wezterm.org/
-
