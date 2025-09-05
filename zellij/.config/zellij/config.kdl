@@ -3,6 +3,9 @@
 //
 
 keybinds clear-defaults=true {
+    normal {
+      unbind "Ctrl o"
+    }
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
     }
