@@ -19,6 +19,9 @@
 
 use std "path add"
 
+$env.EDITOR = "nvim"
+$env.VISUAL = "nvim"
+
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
