@@ -4,6 +4,8 @@ eval "$(starship init zsh)"
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 
