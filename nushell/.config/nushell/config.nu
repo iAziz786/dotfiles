@@ -18,7 +18,7 @@
 #     config nu --doc | nu-highlight | less -R
 
 
-alias ls = exa -l --icons --git-ignore
+alias ls = eza -l --icons --git-ignore
 
 alias n = nvim
 
