@@ -4,7 +4,7 @@ local act = wezterm.action
 
 config.font = wezterm.font("JetBrains Mono")
 if wezterm.target_triple:find("darwin") then
-	config.font_size = 16
+	config.font_size = 18
 else
 	config.window_decorations = "RESIZE"
 	config.font_size = 14
