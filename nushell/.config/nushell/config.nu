@@ -192,9 +192,6 @@ alias n = nvim
 
 alias zj = zellij
 
-$env.config = {
-  show_banner: false
-}
+$env.config.show_banner = false
 
-source ~/.config/nushell/env.nu
 source ~/.zoxide.nu
