@@ -111,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 [[ "$OS" == "macos" ]] && test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Add GOPATH/bin if go is installed
+export PATH=$PATH:/usr/local/go/bin
 command -v go &>/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
 
 # My Personal aliases
