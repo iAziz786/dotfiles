@@ -21,8 +21,10 @@ $haskell\
 $python\
 [](fg:teal bg:blue)\
 $docker_context\
-[](fg:blue bg:purple)\
-$time\
+[](fg:blue bg:yellow)\
+ $cmd_duration\
+[](fg:yellow bg:purple)\
+ $time\
 [ ](fg:purple)\
 $line_break$character"""
 
@@ -189,3 +191,10 @@ vimcmd_symbol = '[](bold fg:creen)'
 vimcmd_replace_one_symbol = '[](bold fg:purple)'
 vimcmd_replace_symbol = '[](bold fg:purple)'
 vimcmd_visual_symbol = '[](bold fg:lavender)'
+
+[cmd_duration]
+disabled = false
+min_time = 0
+show_milliseconds = true
+style = "fg:mantle bg:yellow"
+format = '[[ $duration](fg:base bg:yellow bold)]($style)'
