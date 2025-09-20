@@ -141,6 +141,8 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
+[[ $commands[jj] ]] && source <(COMPLETE=zsh jj)
+
 [ -f ~/.env ] && source ~/.env
 
 export NVM_DIR="$HOME/.nvm"
