@@ -1,7 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-eval "$(starship init zsh)"
-
 export ZSH="$HOME/.oh-my-zsh"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -206,4 +204,5 @@ help() {
 
 . "$HOME/.atuin/bin/env"
 
+eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
