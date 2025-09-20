@@ -132,8 +132,8 @@ alias "clt"="lt --port 8080 --subdomain iaziz786 &"
 # Add zig if exist
 [[ -d "$HOME/.zig" ]] && export PATH="$PATH:$HOME/.zig"
 
-# Add cargo bins
-[[ -d "$HOME/.cargo" ]] && export PATH="$PATH:$HOME/.cargo/bin"
+# For cargo binaries
+export PATH="$PATH:$HOME/.cargo/bin"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
