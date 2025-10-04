@@ -13,3 +13,5 @@ background-blur = 10
 macos-option-as-alt = true
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+
+keybind = ctrl+f=text:zi\r
