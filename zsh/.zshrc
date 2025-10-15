@@ -150,13 +150,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # NeoVim paths
-if [[ "$OS" == "macos" ]]; then
-  [[ -d "$HOME/nvim-macos-arm64/bin" ]] && export PATH="$PATH:$HOME/nvim-macos-arm64/bin"
-  [[ -d "$HOME/nvim-macos/bin" ]] && export PATH="$PATH:$HOME/nvim-macos/bin"
-elif [[ "$OS" == "linux" ]]; then
-  [[ -d "$HOME/.local/nvim/bin" ]] && export PATH="$PATH:$HOME/.local/nvim/bin"
-  [[ -d "/opt/nvim/bin" ]] && export PATH="$PATH:/opt/nvim/bin"
-fi
+[[ -d "$HOME/.local/nvim/bin" ]] && export PATH="$PATH:$HOME/.local/nvim/bin"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
 
