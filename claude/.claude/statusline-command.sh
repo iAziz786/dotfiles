@@ -232,7 +232,7 @@ if [[ -n "$transcript_path" ]] && [[ -f "$transcript_path" ]]; then
       # Color based on usage level
       if [[ "$token_percent" -ge 80 ]]; then
         token_color="$c_red"
-      elif [[ "$token_percent" -ge 50 ]]; then
+      elif [[ "$token_percent" -ge 40 ]]; then
         token_color="$c_yellow"
       else
         token_color="$c_teal"
