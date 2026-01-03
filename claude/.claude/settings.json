@@ -6,11 +6,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Funk.aiff"
+            "command": "~/.claude/notify.sh sound"
           },
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Done!\" with title \"Claude Code\"'"
+            "command": "~/.claude/notify.sh notify 'Done!'"
           }
         ]
       }
