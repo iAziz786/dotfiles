@@ -133,6 +133,9 @@ alias "clt"="lt --port 8080 --subdomain iaziz786 &"
 # For cargo binaries
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Add flutter path
+[[ -d "$HOME/develop/flutter/bin" ]] && export PATH="$HOME/develop/flutter/bin:$PATH"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -202,3 +205,12 @@ help() {
 
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
+# Docker CLI completions
+if [[ -d "$HOME/.docker/completions" ]]; then
+  fpath=($HOME/.docker/completions $fpath)
+  autoload -Uz compinit
+  compinit
+fi
+
+# opencode
+[[ -d "$HOME/.opencode/bin" ]] && export PATH="$HOME/.opencode/bin:$PATH"
