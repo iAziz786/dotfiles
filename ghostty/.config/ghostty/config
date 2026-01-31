@@ -2,8 +2,8 @@
 theme = Catppuccin Mocha
 
 # Font settings
-font-family = JetBrain Mono
-font-size = 16
+font-family = JetBrains Mono
+font-size = 18
 
 # Windows transparency
 background-opacity = 0.9
