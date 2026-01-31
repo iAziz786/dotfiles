@@ -50,8 +50,11 @@
     "playwright": {
       "type": "local",
       "command": [
-        "npx",
-        "@playwright/mcp@latest"
+        "bunx",
+        "@playwright/mcp@latest",
+        "--extension",
+        "--executable-path",
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
       ],
       "enabled": false
     }
