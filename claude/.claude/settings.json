@@ -22,5 +22,10 @@
   "statusLine": {
     "type": "command",
     "command": "/bin/zsh ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   }
 }
