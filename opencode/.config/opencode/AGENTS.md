@@ -7,6 +7,7 @@
 - ALWAYS FOLLOW TDD, red phase to green phase
 - NEVER write untested code
 - ASK FOR HELP if you are stuck, NEVER speculate
+- ALWAYS follow review -> iterate -> review loop; break when review requirements satisfied and tests pass
 
 ## Output
 
