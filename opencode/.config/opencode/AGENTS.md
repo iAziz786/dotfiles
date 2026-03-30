@@ -2,6 +2,7 @@
 
 ## General
 
+- ALWAYS read prompt and SPEC files first if present before implementing
 - ALWAYS use parallel agent for code exploration
 - ALWAYS FOLLOW TDD, red phase to green phase
 - NEVER write untested code
