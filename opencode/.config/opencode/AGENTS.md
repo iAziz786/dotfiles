@@ -38,6 +38,12 @@
 - For jira use `acli` CLI -- acli jira workitem create/view etc.
 - ALWAYS use `--help` for unfimilar commands before using them
 
+## PDF Processing
+
+- If `marker` CLI is available, ALWAYS use it for PDF reading/extraction tasks
+  - Default: `marker <pdf_folder> --output_dir <output>` for markdown output
+  - For single files: `marker_single <pdf_file> --output_dir <output>`
+
 ## Planning
 
 - NEVER include implementation code in the output/file of spec
