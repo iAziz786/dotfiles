@@ -1,86 +1,149 @@
 # AGENTS.md
 
-## General
+## General Execution Protocol
 
-- ALWAYS read prompt and SPEC files first if present before implementing
-- ALWAYS use parallel agent for code exploration
-- ALWAYS FOLLOW TDD, red phase to green phase
-- NEVER write untested code
-- ASK FOR HELP if you are stuck, NEVER speculate
-- ALWAYS follow review -> iterate -> review loop; break when review requirements satisfied and tests pass
+- Prefer small, reversible, end-to-end changes.
+- Default to working in small, testable increments.
+- TDD is mandatory for business logic, service objects, and API handlers or
+  endpoints:
+  - write a failing test first,
+  - make the smallest change that passes,
+  - refactor once validation is green.
+- If test-first is skipped for infrastructure work, exploratory spikes, or
+  difficult-to-control integration boundaries, provide a one-sentence
+  justification and add the missing test immediately after the behavior is
+  understood and stable.
+- NEVER guess silently. State assumptions, verify them where possible, and ask
+  for help when needed.
+- Use parallel exploration when useful, especially for large or unfamiliar
+  codebases.
+- Follow a `review -> iterate -> review` loop.
+- Exit the review loop only when:
+  - requirements are satisfied,
+  - validation passes,
+  - no unresolved correctness or contract risks remain,
+  - important tradeoffs are documented.
+
+## Stuck Protocol
+
+If blocked after **2 consecutive failed attempts** on the same problem, or if no
+new signal is produced after a reasonable investigation, stop and escalate.
+
+Escalation must include:
+
+- what was attempted,
+- what failed and why,
+- what evidence was gathered,
+- what information, access, or decision is needed to continue.
+
+Do not fabricate APIs, behavior, or missing requirements.
 
 ## Output
 
-- ALWAYS keep it concise
-- ONLY include necessary information
+- PREFER high information density and task-focused output.
+- Omit conversational filler, but NEVER omit error handling or type definitions.
+- Include only information that helps the next decision or action.
+- Be explicit about uncertainty, tradeoffs, open risks, and incomplete
+  verification.
+- Do not include implementation code in specs or planning documents.
+
+## Context And Memory Discipline
+
+Treat context as limited working memory.
+
+- Preserve only the information needed for the current step.
+- When a task spans many steps, persist important state in durable artifacts
+  rather than relying on transient context alone.
+- Default to using fresh General or Explore agents for codebase exploration,
+  broad search, scoped code changes, file edits, and review work unless doing
+  so would clearly add unnecessary overhead.
+- Keep the main context reserved for coordination, the current decision, and
+  final synthesis, not for carrying the full working set of the task.
 
 ## Engineering Guardrails
 
-- MUST prefer reversible changes; if a change is hard to undo, state why.
-- MUST design for change, replacement, and extension.
-- SHOULD keep coupling loose and boundaries clear.
-- SHOULD hide implementation details behind small, stable interfaces.
-- MUST avoid duplicating knowledge across code, config, schemas, or docs.
-- PREFER composition and delegation over inheritance.
-- PREFER simple solutions over clever ones.
-- AVOID hardcoding volatile policy or environment-specific values.
-- ONLY introduce irreversible or tightly coupled designs when the benefit is
-  clear and immediate.
-- IF a design increases coupling or reduces replaceability, explain the tradeoff.
-- VERIFY important assumptions with tests, assertions, or explicit contracts.
-- BUILD changes in small, end-to-end, testable steps.
+- Prefer reversible changes; if a change is difficult to undo, state why.
+- Design for maintainability, replacement, and extension.
+- Keep coupling low, boundaries clear, and interfaces small and stable.
+- Avoid duplicating knowledge across code, config, schemas, and docs.
+- Prefer composition and delegation over inheritance.
+- Prefer simple, explicit solutions over clever ones.
+- Avoid hardcoding volatile policy or environment-specific values.
+- Verify important assumptions with tests, assertions, or explicit contracts.
+- Build in small, end-to-end slices that can be validated independently.
+- Do not introduce fragile, duplicated, or easy-to-misuse patterns unless
+  explicitly required.
+- Justify any new dependency. Prefer existing platform capabilities or small
+  local helpers when they are sufficient.
+- When a tradeoff increases coupling, reduces replaceability, or introduces
+  irreversibility, explain why it is worth it.
 
-## Tools
+## Planning And Specs
 
-- ALWAYS use `bun`, `bunx` over `node`, `npm`, `yarn`, etc.
-- ALWAYS `uv` over `pip`
-- Use ripgrep (`rg`) instead of `grep`, use `fd` instead of `find`
-- For jira use `acli` CLI -- acli jira workitem create/view etc.
-- ALWAYS use `--help` for unfimilar commands before using them
+- Keep specifications focused on user-facing behavior, constraints, acceptance
+  criteria, and boundary contracts.
+- Do not include implementation logic in specs. Interface definitions, API
+  contracts, schemas, IDLs, or DSL shapes are encouraged when they define the
+  external behavior or required contract.
+- Avoid unnecessary architecture detail unless it is required to make a
+  decision.
+- Resolve ambiguity before planning. Ask instead of assuming.
+- A good spec or planning artifact should cover:
+  - problem statement,
+  - intended user-facing behavior,
+  - acceptance criteria,
+  - edge cases and exclusions,
+  - dependencies and open questions.
 
-## PDF Processing
+## GitHub Issues
 
-- If `marker` CLI is available, ALWAYS use it for PDF reading/extraction tasks
-  - Default: `marker <pdf_folder> --output_dir <output>` for markdown output
-  - For single files: `marker_single <pdf_file> --output_dir <output>`
+Use the `github-issue-spec` skill when creating GitHub issues as planning artifacts.
 
-## Planning
+## Commit Discipline
 
-- NEVER include implementation code in the output/file of spec
+- Commit messages should follow Conventional Commits (`type(scope): subject`)
+  using a short imperative subject and a scope that matches the feature area
+  when practical.
+- Do not include `SPEC*.md` files in commits unless explicitly requested.
+- Do not commit changes until validation is complete, or explicitly state the
+  validation gap.
+- Each commit must represent one logical, reviewable change. Do not bulk
+  commits across unrelated concerns.
+- If a change introduces a non-obvious tradeoff, document it briefly in the
+  commit message or accompanying review note.
+
+## Testing
+
+- Test observable behavior and public contracts, not implementation details.
+- Add or update tests to cover the intended behavior change.
+- Use the smallest test surface that gives confidence.
+- For bug fixes, add coverage that would have caught the bug.
+- Prefer integration-style tests over brittle low-level tests when they better
+  protect behavior and contracts.
+- Treat missing tests as a risk to resolve, not a reason to guess.
+
+## Tooling
+
+- In new JavaScript or TypeScript setups, prefer `bun` and `bunx` where
+  compatible.
+- In new Python setups, prefer `uv` where compatible.
+- Prefer `rg` over `grep` and `fd` over `find` when available.
+- For unfamiliar commands, read `--help` or official docs before use.
+- Do not assume a tool is installed; verify availability before depending on it.
+- For Jira workflows, use `acli` when it is available and configured.
 
 ## Decision Criteria
 
-- Maintainability is REQUIRED.
-- You MUST prefer pit-of-success designs: make the correct path the easiest
-  path.
-- When multiple approaches are valid, DEFAULT TO the one with clearer
-  ownership, less complexity, and lower long-term cognitive load.
-- For bug fixes and feature work, PREFER the path that would have prevented
-  the bug in the first place or naturally guides future work into the pit
-  of success.
-- You MUST NOT introduce fragile, duplicated, or easy-to-misuse patterns
-  unless explicitly required.
-
-### GitHub Issues
-
-- ALWAYS use GitHub Issues SPEC planning
-- ALWAYS ask when there is ambiguity which repo to use for spec writing
-
-When creating an issue, ALWAYS keep this in mind:
-
-#### Key Characteristics
-
-- Specification-style writing: Treats the issue like a mini-spec document
-- No implementation details: Focuses on user-facing behavior, not internal architecture
-- Complete but concise: Covers all use cases without being verbose
-- Forward-looking: Shows how it integrates with existing and planned features
-
-## Commit Instructions
-
-- NEVER include SPEC*.md files in commits
-- ALWAYS Follow Conventional Commits
-  - <https://www.conventionalcommits.org/en/v1.0.0/>
-
-## Tests
-
-- ALWAYS test behaviour, NEVER implementation details
+- Maintainability is required.
+- Prefer pit-of-success designs that make the correct path the easiest path.
+- Prefer designs that are easy to use correctly and hard to misuse.
+- Prefer the approach that best supports future change with minimal rework.
+- Prefer consistency with the existing codebase unless there is a clear benefit
+  to changing direction.
+- When multiple approaches are valid, choose the one with:
+  - clearer ownership,
+  - lower complexity,
+  - better maintainability,
+  - lower long-term cognitive load.
+- Prefer fixes that prevent the class of bug, not only the specific instance.
+- When introducing a non-obvious design, document the tradeoff briefly.

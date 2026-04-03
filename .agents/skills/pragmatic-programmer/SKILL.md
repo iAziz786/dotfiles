@@ -1,65 +1,61 @@
 ---
 name: pragmatic-programmer
-description: Use this skill when the goal is a pragmatic code review grounded in The Pragmatic Programmer. It runs four independent checked-in reviewer agents in two parallel rounds. In round 1, each reviewer inspects the codebase and writes its own `.agent/prag-*-review.md` file. In round 2, fresh instances of the same reviewers reread the codebase, self-critique their own review file, and overwrite it in place using one shared markdown contract. The skill ends after the second round, with no apply step or QA handoff.
+description: Use this skill when the goal is a pragmatic code review grounded in The Pragmatic Programmer that iterates through review cycles. Each cycle runs 4 reviewers (2 rounds with validation), consolidates findings, applies fixes, and repeats up to 5 times. Pauses for user clarification on ambiguity and reports regressions with ASCII diagrams.
 license: MIT
 compatibility: Designed for agents that can spawn isolated parallel subagents and read or write local files in the current repo.
 metadata:
   author: Aziz
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Pragmatic Programmer Review
 
-Use this skill when the user wants pragmatic review findings driven by maintainability, correctness, reversibility, and communication quality rather than style commentary.
+Use this skill when the user wants pragmatic review findings that lead to actual fixes, with multiple review cycles driven by maintainability, correctness, reversibility, and communication quality.
 
 ## What This Skill Does
 
-- Runs 4 independent reviewer agents in parallel
-- Uses exactly 2 review rounds
-- Uses fresh reviewer instances in round 2
-- Keeps each reviewer isolated to its own `.agent` file
-- Makes each reviewer self-critique its own round-1 review
-- Uses one shared markdown contract for all 4 review files
-- Stops after round 2; this skill does not apply changes
+- Runs **iterative review-fix cycles** (max 5 cycles)
+- Each cycle consists of:
+  - **Round 1**: 4 independent reviewers in parallel (fresh inspection)
+  - **Round 2**: Same 4 reviewers validate and consolidate (only retain valid findings)
+  - **Consolidation**: Gather validated findings from all 4 reviewers
+  - **Fixer**: One isolated `general` agent applies the fixes
+- Tracks cycle state in `.agent/` folder
+- Pauses for user clarification on ambiguity (does not count as a cycle)
+- Reports regressions with ASCII diagrams at the 5-cycle limit
 
 ## When To Use It
 
 Activate this skill when the user wants:
 
 - a code review grounded in *The Pragmatic Programmer*
-- independent reviewers instead of one shared-thread review
-- separate review files written into `.agent/`
-- a second-pass self-critique by the same reviewer role in a fresh context
-- pragmatic findings about contracts, architecture, delivery, and team-facing clarity
+- iterative refinement with actual fixes, not just reports
+- validated findings (round 2 filters out stale findings)
+- safe stopping with clear regression explanations
 
 ## Defaults
 
-- Use exactly these checked-in reviewer agents: `prag-contract-keeper`, `prag-architect`, `prag-generator`, `prag-evaluator`.
-- Use exactly these output files: `.agent/prag-contract-keeper-review.md`, `.agent/prag-architect-review.md`, `.agent/prag-generator-review.md`, `.agent/prag-evaluator-review.md`.
-- Use the shared markdown contract in [references/review-output-contract.md](references/review-output-contract.md).
-- Keep reviewers isolated. They should not read each other's review files.
-- Round 2 overwrites the same files from round 1.
-- Do not create `-final` files.
-- Do not ask the user clarifying questions once the review run starts if the codebase context is sufficient; derive reasonable assumptions and record them in the review file's `Assumptions` section.
+- Reviewer agents: `prag-contract-keeper`, `prag-architect`, `prag-generator`, `prag-evaluator`
+- Review files: `.agent/prag-*-review-r1.md` and `.agent/prag-*-review-r2.md` (where * is the agent name)
+- Consolidated fix brief: `.agent/fix-brief.md`
+- State directory: `.agent/`
+- Max cycles: 5
+- Reviewers isolated: they never read each other's files
 
 ## Required Inputs
 
-Before starting the two-round review, establish these facts from the prompt and current workspace:
+Before starting, establish:
 
-1. The review target.
-   Examples: current branch diff or the current codebase state around a change.
-2. The review goal.
-   Examples: bug risk review, maintainability review, or broad pragmatic review.
-3. The boundaries.
-   Examples: review only changed files, avoid implementation rewrites, preserve current architecture, or focus on regressions.
-4. The output surface.
-   For this skill, the output surface is always the four `.agent/prag-*-review.md` files.
+1. **Review target**: current branch diff, specific files, or full codebase
+2. **Review goal**: bug risk, maintainability, or broad pragmatic review
+3. **Boundaries**: changed files only, preserve architecture, no rewrites, etc.
+4. **Allowed modification surface**: which files the fixer can touch
 
-If any of these are ambiguous, derive the most reasonable interpretation from the current context and let each reviewer log uncertainty in `## Assumptions` instead of blocking the run.
+If ambiguous, make reasonable assumptions and log them in state files.
 
 ## Pragmatic Principles
 
-All 4 reviewers must apply the same core principles:
+All reviewers apply these:
 
 - Topic 3: fix broken windows and visible software rot
 - Topic 7: communicate clearly, precisely, and for the next reader
@@ -82,100 +78,266 @@ All 4 reviewers must apply the same core principles:
 
 ## Reviewer Mapping
 
-Use these reviewer roles:
-
-- `prag-contract-keeper`: contracts, invariants, boundary handling, crash-early behavior, assertions, and contract-oriented tests
-- `prag-architect`: ETC, DRY, orthogonality, decoupling, reversibility, and inheritance tax
-- `prag-generator`: tracer bullets, prototype leakage, refactoring timing, incremental delivery, and test-to-code quality
-- `prag-evaluator`: broken windows, naming, comments, glossary consistency, and team-facing maintainability signals
+- `prag-contract-keeper`: contracts, invariants, boundary handling, crash-early behavior, assertions
+- `prag-architect`: ETC, DRY, orthogonality, decoupling, reversibility, inheritance tax
+- `prag-generator`: tracer bullets, prototype leakage, refactoring timing, incremental delivery
+- `prag-evaluator`: broken windows, naming, comments, glossary consistency, team signals
 
 ## Core Workflow
 
-### Phase 1: Capture Review Context
+### Phase 0: Initialize State
 
-1. Read the relevant codebase state first.
-2. Determine the review scope and boundaries from the current task.
-3. Keep the scope identical for all 4 reviewers.
-4. When prompting reviewers, tell them to refer to `/tmp/pragmatic-programmer.md` for the relevant book guidance.
+Create state directory `.agent/` (if it doesn't exist)
 
-### Phase 2: Round 1
+State files:
+- `prag-*-review-r1.md` (round 1, overwritten each cycle)
+- `prag-*-review-r2.md` (round 2, validated, overwritten each cycle)
+- `fix-brief.md` (consolidated, overwritten each cycle)
+- `apply-summary.md` (fixer output, overwritten each cycle)
+- `iteration-log.md` (cycle history)
+- `regression-report.md` (final)
 
-1. Invoke these 4 checked-in reviewer agents in parallel: `prag-contract-keeper`, `prag-architect`, `prag-generator`, `prag-evaluator`.
-2. Each reviewer must:
-    - read prompt or SPEC files first if they exist
-    - read `opencode/.config/opencode/AGENTS.md` for repo expectations
-    - refer to `/tmp/pragmatic-programmer.md` for the relevant topics behind its reviewer role
-    - treat round 1 as an explicit caller instruction, not as something inferred from existing review files
-    - inspect `git diff`
-    - inspect `git log` and `git show` as needed
-    - read the relevant source files before judging
-    - write only its assigned `.agent/prag-*-review.md`
-    - follow [references/review-output-contract.md](references/review-output-contract.md)
+### Phase 1: Round 1 - Fresh Review
 
-### Phase 3: Round 2
+Spawn 4 reviewers in parallel. Each must:
 
-1. Invoke fresh instances of the same 4 checked-in reviewer agents in parallel.
-2. Each reviewer must:
-   - treat round 2 as an explicit caller instruction, not as something inferred from existing review files alone
-   - read its own existing review file from round 1
-   - reread prompt or SPEC files if they exist
-   - reread `opencode/.config/opencode/AGENTS.md`
-   - refer to `/tmp/pragmatic-programmer.md` for the relevant topics behind its reviewer role
-   - reread the current codebase or changed files
-   - self-critique its first-pass conclusions
-   - overwrite the same review file in place
-   - include a `Self-Critique` section per the shared contract
-3. Keep reviewers behaviorally isolated. They should not read each other's review files.
+- Read prompt/SPEC files if they exist
+- Read `opencode/.config/opencode/AGENTS.md`
+- Refer to the Pragmatic Principles section above
+- Inspect `git diff`, `git log`, relevant source
+- Write only to its assigned `.agent/prag-*-review-r1.md` file
+- Follow the review output contract
 
-## Prompt Pattern For The Reviewers
+Each reviewer performs independent first-pass analysis without reading prior reviews.
 
-Each reviewer prompt should include:
+### Phase 2: Round 2 - Validation & Consolidation
 
-- the exact review target
-- the review goal
-- the explicit boundaries
-- the instruction to refer to `/tmp/pragmatic-programmer.md` for the relevant book sections
-- the instruction to write only to its assigned `.agent/prag-*-review.md`
-- the instruction to use the shared contract in [references/review-output-contract.md](references/review-output-contract.md)
-- whether this is round 1 or round 2
+Spawn the same 4 reviewers in parallel (fresh instances). Each must:
 
-Prefer direct instructions such as:
+- Perform independent review first
+- Then read its own round-1 file
+- Validate each finding from round 1:
+  - **confirmed**: finding is still valid, evidence holds (mark as `confirmed`)
+  - **dropped**: finding is stale, false positive, or already fixed (exclude from Findings, explain in Self-Critique)
+  - **modified**: finding is partially valid but needs adjustment (mark as `modified`)
+  - **new**: discovered during re-review (mark as `new`)
+- Write only **validated findings** to the same file
+- Include `Self-Critique` explaining what was dropped and why
+- Follow the review output contract
 
-- review this codebase state against the stated goal
-- inspect the code before making claims
-- keep findings high-signal and scoped
-- write only to the assigned review file
-- on round 2, critique your own prior review and overwrite it
+Rejected findings do not appear in round-2 output. Only the Self-Critique mentions them.
+
+### Phase 3: Consolidation
+
+Read all 4 round-2 review files from `.agent/` folder. Build `.agent/fix-brief.md` containing:
+
+- Summary of validated findings across all 4 reviewers
+- Grouped by severity (critical, high, medium, low)
+- Specific file paths and line references
+- Clear description of what needs fixing
+- Any cross-reviewer conflicts or ambiguities
+
+If no findings remain after validation, the cycle is clean. Skip to Phase 5.
+
+If findings exist and this is the first cycle, proceed to Phase 3.5 to get user confirmation before applying fixes.
+
+### Phase 3.5: User Confirmation (First Cycle Only)
+
+After building `.agent/fix-brief.md` on the first cycle, pause and use `question` tool:
+
+- **Question**: "Review findings have been consolidated. Do you want to proceed with applying fixes?"
+- **Options**: ["Yes, proceed with fixes", "Stop"]
+- **If user selects "Stop"**: Exit the skill entirely, do not proceed to Phase 4
+- **If user selects "Yes, proceed with fixes"**: Continue to Phase 4 (Fixer Agent)
+
+This confirmation is asked only once before the first fix cycle. Subsequent cycles proceed automatically.
+
+### Phase 4: Fixer Agent
+
+**Prerequisite**: User must have confirmed in Phase 3.5 (first cycle only).
+
+Spawn one isolated `general` subagent via `task` tool.
+
+Fixer agent must:
+
+- Read `.agent/fix-brief.md`
+- Read the 4 review files from `.agent/` for context
+- Apply only validated findings
+- Preserve stated boundaries
+- Not renegotiate whether a finding is correct
+- Write `apply-summary.md` listing what changed
+
+The fixer can modify any files needed to address findings. No restrictions on file types.
+
+### Phase 5: Stop or Continue
+
+**Stopping conditions:**
+
+1. **Clean cycle**: No findings in round 2 + no changes in fixer
+2. **Cycle limit reached**: 5 cycles completed
+3. **User pause**: Ambiguity requires clarification (does not count toward 5 cycles)
+4. **User declined fixes**: User chose "Stop" in Phase 3.5
+
+**On clean cycle**: Log success, stop.
+
+**On cycle 5 with remaining issues**: Generate regression report (see below).
+
+**On ambiguity**: Pause, ask user, resume same cycle.
+
+**On user declined fixes**: Log "Fixes declined by user", stop immediately.
+
+### Phase 6: Regression Report (Cycle 5 Stop)
+
+When stopping at cycle 5 with unresolved issues, generate ASCII report:
+
+```
+================================================================================
+                    PRAGMATIC PROGRAMMER REVIEW: REGRESSION REPORT
+================================================================================
+
+WHY WE STOPPED
+--------------
+Maximum cycle limit (5) reached with outstanding issues remaining.
+
+CYCLE SUMMARY
+-------------
+Cycle 1: X findings -> Y applied
+Cycle 2: X findings -> Y applied
+Cycle 3: X findings -> Y applied
+Cycle 4: X findings -> Y applied
+Cycle 5: X findings -> Y applied
+
+OUTSTANDING ISSUES
+------------------
+[From round-2 review files of cycle 5]
+
+REGRESSION ANALYSIS
+-------------------
+[Diagram showing issue persistence across cycles]
+
+Example ASCII diagram format:
+
+    Cycle 1          Cycle 2          Cycle 3          Cycle 4          Cycle 5
+    ┌──────┐         ┌──────┐         ┌──────┐         ┌──────┐         ┌──────┐
+    │Issue A│────────>│Issue A│────────>│Issue A│────────>│Issue A│────────>│Issue A│
+    └──────┘         └──────┘         └──────┘         └──────┘         └──────┘
+         │ Attempted fix failed or incomplete
+         v
+    [Root cause explanation]
+
+POSSIBLE CAUSES
+---------------
+- Fix attempts not addressing root cause
+- New issues introduced by fixes
+- Test coverage gaps preventing verification
+- Architectural constraints blocking clean solutions
+
+RECOMMENDATIONS
+---------------
+- Manual intervention required
+- Consider breaking into smaller PRs
+- Add missing tests before next fix attempt
+- Re-evaluate architecture if issues persist
+
+================================================================================
+```
+
+Use `question` tool to ask user:
+
+- "Do you want to continue despite cycle limit?"
+- "Should we focus on specific findings?"
+- "Any architectural changes needed?"
+
+After user response, resume from current state or reset as directed.
+
+## Ambiguity Pause
+
+When any agent encounters ambiguity that blocks progress:
+
+1. Record the ambiguity in `iteration-log.md` with:
+   - Timestamp
+   - Current cycle and phase
+   - Exact question that needs user input
+   - What decision is blocked
+2. Use `question` tool to ask the user
+3. Pause the current phase (does not increment cycle count)
+4. **Resume Procedure:**
+   - Wait for user response via the question tool
+   - Append user response to `.agent/iteration-log.md` with timestamp
+   - Incorporate user answer into the current phase's work
+   - Continue from the exact point where the pause occurred
+   - Do not restart the phase; resume with the context intact
+
+Do not guess when the stakes are high. Prefer pausing with a clear question.
+
+## Prompt Patterns
+
+**For reviewers (both rounds):**
+
+Include:
+- Review target
+- Review goal
+- Boundaries
+- Round number (1 or 2)
+- Instruction to refer to the Pragmatic Principles section above
+- Output file path
+- Contract reference
+
+**For fixer:**
+
+Include:
+- Path to `.agent/fix-brief.md`
+- Allowed modification surface
+- Boundaries to preserve
+- Instruction to write `apply-summary.md`
+
+## State Management
+
+State directory: `.agent/`
+
+Review files (overwritten each cycle):
+- `prag-contract-keeper-review-r1.md` (round 1)
+- `prag-contract-keeper-review-r2.md` (round 2, validated)
+- `prag-architect-review-r1.md` (round 1)
+- `prag-architect-review-r2.md` (round 2, validated)
+- `prag-generator-review-r1.md` (round 1)
+- `prag-generator-review-r2.md` (round 2, validated)
+- `prag-evaluator-review-r1.md` (round 1)
+- `prag-evaluator-review-r2.md` (round 2, validated)
+- `fix-brief.md` (consolidated)
+- `apply-summary.md` (fixer output)
+
+Global files:
+- `iteration-log.md` (cycle history, pause reasons)
+- `regression-report.md` (final report)
 
 ## Output Contract
 
-All reviewer files must follow [references/review-output-contract.md](references/review-output-contract.md).
+Review files follow [references/review-output-contract.md](references/review-output-contract.md).
 
-At the end of the skill run, report:
-
-- that 4 parallel reviewers ran in round 1
-- that 4 fresh parallel reviewers ran in round 2
-- where the 4 review files were written
-- any missing reviewer output or blocked write
+At skill completion, report:
+- Cycles completed
+- Final state (clean stop, limit reached, user paused)
+- Location of review files (in `.agent/` folder)
+- Location of regression report (if applicable)
 
 ## Gotchas
 
-- Do not add an apply step or QA handoff.
-- Do not let reviewers share conclusions through the main thread.
-- Do not collapse the 4 reviewers into one combined review.
-- Do not reuse round-1 conversational context for round 2; use fresh reviewers.
-- Do not create separate `-final` files.
-- Do not change the markdown structure between reviewers.
-- Do not let a reviewer skip rereading the codebase on round 2.
-- Do not advertise broader target support than the reviewer prompts actually define.
-- Do not let a reviewer read another reviewer's `.agent/prag-*-review.md` file.
-- Do not let reviewers infer round 1 or round 2 purely from stale existing review files.
+- Round 2 must only contain validated findings; rejected ones go in Self-Critique only
+- Do not let reviewers read each other's files
+- Fixer must not re-review; only apply
+- Ambiguity pause does not count as a cycle
+- Fresh reviewer instances for every round
+- Use `task` tool for fixer, not inline
+- Keep ASCII diagrams readable in terminal
+- **User confirmation in Phase 3.5 only happens once before the first fix cycle**
+- If user declines fixes in Phase 3.5, the skill stops entirely
 
 ## Keep It Lean
 
-This skill is intentionally procedural.
+This skill balances thoroughness with pragmatism:
 
-- Keep the skill instructions high signal.
-- Keep reviewer outputs concise.
-- Prefer concrete findings over broad essays.
-- Let the user decide what to do after the two review rounds complete.
+- 5 cycles is enough to catch most patterns without infinite loops
+- Validation round filters noise before fixing
+- ASCII diagrams are terminal-friendly
+- Pauses preserve user agency without losing progress
