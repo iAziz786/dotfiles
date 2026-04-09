@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/Users/aziz/.oh-my-zsh/custom/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
@@ -116,7 +123,6 @@ command -v go &>/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
 alias "$"=""
 export EZA_CONFIG_DIR=$HOME/.config/eza
 alias ls="eza --all --long --icons --git"
-alias lt="eza --all --tree ---level=2 --icons --git"
 
 
 alias n="nvim"
