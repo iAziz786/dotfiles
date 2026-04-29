@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<opml version="1.0">
+  <head>
+    <title>Feeder - RSS Feed Reader</title>
+    <dateCreated>2026-04-15T02:57:29Z</dateCreated>
+  </head>
+  <body>
+    <outline title="Cloud" text="Cloud">
+      <outline text="Google Cloud Architecture Center - Release notes" title="Google Cloud Architecture Center - Release notes" type="rss" xmlUrl="https://cloud.google.com/feeds/architecture-center-release-notes.xml" htmlUrl="https://cloud.google.com/feeds/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/cloud.google.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="Google Cloud Platform (GCP) - Release notes" title="Google Cloud Platform (GCP) - Release notes" type="rss" xmlUrl="https://cloud.google.com/feeds/gcp-release-notes.xml" htmlUrl="https://cloud.google.com/feeds/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/cloud.google.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="Microsoft Azure Blog" title="Microsoft Azure Blog" type="rss" xmlUrl="https://azure.microsoft.com/en-us/blog/feed/" htmlUrl="https://azure.microsoft.com/blog/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/azure.microsoft.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline title="k8s" text="k8s">
+        <outline text="Kubernetes Blog" title="Kubernetes Blog" type="rss" xmlUrl="https://kubernetes.io/feed.xml" htmlUrl="https://kubernetes.io/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/kubernetes.io" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      </outline>
+      <outline text="Cloud Native Computing Foundation" title="Cloud Native Computing Foundation" type="rss" xmlUrl="https://www.cncf.io/feed/" htmlUrl="https://www.cncf.io" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.cncf.io" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="AWS DevOps Blog" title="AWS DevOps Blog" type="rss" xmlUrl="https://aws.amazon.com/blogs/devops/feed/" htmlUrl="https://aws.amazon.com/blogs/devops/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/aws.amazon.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="Cloud Blog" title="Cloud Blog" type="rss" xmlUrl="https://cloudblog.withgoogle.com/rss/" htmlUrl="https://cloud.google.com/blog/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/cloud.google.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="AWS Architecture Blog" title="AWS Architecture Blog" type="rss" xmlUrl="https://aws.amazon.com/blogs/architecture/feed/" htmlUrl="https://aws.amazon.com/blogs/architecture/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/aws.amazon.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="What's New" title="What's New" type="rss" xmlUrl="https://aws.amazon.com/new/feed/" htmlUrl="https://aws.amazon.com/new.rss" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/aws.amazon.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="AWS News Blog" title="AWS News Blog" type="rss" xmlUrl="https://aws.amazon.com/blogs/aws/feed/" htmlUrl="https://aws.amazon.com/blogs/aws/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/aws.amazon.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="Istio Blog and News" title="Istio Blog and News" type="rss" xmlUrl="https://istio.io/latest/feed.xml" htmlUrl="https://istio.io/latest" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/istio.io" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Instance Types Updates" title="Instance Types Updates" type="rss" xmlUrl="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-types.rss" htmlUrl="https://docs.aws.amazon.com/ec2/latest/instancetypes/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/docs.aws.amazon.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="CloudFlare" title="CloudFlare" type="rss" xmlUrl="https://blog.cloudflare.com/rss/" htmlUrl="https://blog.cloudflare.com/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/blog.cloudflare.com" rssfr-useNotifications="0" rssfr-updateInterval="7200000" />
+      <outline text="Blog on Helm" title="Blog on Helm" type="rss" xmlUrl="https://helm.sh/blog/index.xml" htmlUrl="https://helm.sh/blog/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/helm.sh" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Google Cloud Status Dashboard Updates" title="Google Cloud Status Dashboard Updates" type="rss" xmlUrl="https://status.cloud.google.com/en/feed.atom" htmlUrl="https://status.cloud.google.com/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/status.cloud.google.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Science" text="Science">
+      <outline text="Veritasium" title="Veritasium" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA" htmlUrl="http://www.youtube.com/channel/UCHnyfMqiRRG1u-2MsSQLbXA" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.youtube.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Farnam Street" title="Farnam Street" type="rss" xmlUrl="https://fs.blog/feed/" htmlUrl="https://fs.blog" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/fs.blog" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Wait But Why" title="Wait But Why" type="rss" xmlUrl="https://waitbutwhy.com/feed" htmlUrl="https://waitbutwhy.com" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/waitbutwhy.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="TED" title="TED" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCAuUUnT6oDeKwE6v1NGQxug" htmlUrl="http://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.youtube.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="USENIX Update" title="USENIX Update" type="rss" xmlUrl="https://www.usenix.org/blog/rss.xml" htmlUrl="https://www.usenix.org/blog" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.usenix.org" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Computer Science News -- ScienceDaily" title="Computer Science News -- ScienceDaily" type="rss" xmlUrl="https://www.sciencedaily.com/rss/computers_math/computer_science.xml" htmlUrl="https://www.sciencedaily.com/news/computers_math/computer_science/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.sciencedaily.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="AI" text="AI">
+      <outline text="OpenAI News" title="OpenAI News" type="rss" xmlUrl="https://openai.com/blog/rss.xml" htmlUrl="https://openai.com/blog" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/openai.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline title="Safety" text="Safety">
+        <outline text="Robert Miles" title="Robert Miles" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCLB7AzTwc6VFZrBsO2ucBMg" htmlUrl="https://www.youtube.com/channel/UCLB7AzTwc6VFZrBsO2ucBMg" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.youtube.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      </outline>
+    </outline>
+    <outline title="Startup" text="Startup">
+      <outline text="Sam Altman" title="Sam Altman" type="rss" xmlUrl="http://blog.samaltman.com/posts.atom" htmlUrl="http://blog.samaltman.com" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/blog.samaltman.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Releases" text="Releases">
+      <outline text="Release notes from strimzi-kafka-operator" title="Release notes from strimzi-kafka-operator" type="rss" xmlUrl="https://github.com/strimzi/strimzi-kafka-operator/releases.atom" htmlUrl="https://github.com/strimzi/strimzi-kafka-operator/releases" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/github.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="News" text="News" />
+    <outline title="Open Source" text="Open Source">
+      <outline text="It's FOSS" title="It's FOSS" type="rss" xmlUrl="https://itsfoss.com/rss/" htmlUrl="https://itsfoss.com/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/itsfoss.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Visual Studio Code - Code Editing. Redefined." title="Visual Studio Code - Code Editing. Redefined." type="rss" xmlUrl="https://code.visualstudio.com/feed.xml" htmlUrl="http://code.visualstudio.com/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/code.visualstudio.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Docker" title="Docker" type="rss" xmlUrl="https://www.docker.com/feed/" htmlUrl="https://www.docker.com" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.docker.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Engineering" text="Engineering">
+      <outline text="Zerodha Tech Blog" title="Zerodha Tech Blog" type="rss" xmlUrl="https://zerodha.tech/index.xml" htmlUrl="https://zerodha.tech/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/zerodha.tech" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="37signals Dev" title="37signals Dev" type="rss" xmlUrl="https://dev.37signals.com/feed/posts.xml" htmlUrl="https://dev.37signals.com" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/dev.37signals.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Martin Fowler" title="Martin Fowler" type="rss" xmlUrl="https://martinfowler.com/feed.atom" htmlUrl="https://martinfowler.com" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/martinfowler.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Database" text="Database">
+      <outline text="PostgreSQL news" title="PostgreSQL news" type="rss" xmlUrl="https://www.postgresql.org/news.rss" htmlUrl="https://www.postgresql.org/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.postgresql.org" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="PostgreSQL latest versions" title="PostgreSQL latest versions" type="rss" xmlUrl="https://www.postgresql.org/versions.rss" htmlUrl="https://www.postgresql.org/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.postgresql.org" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Latest News from MySQL" title="Latest News from MySQL" type="rss" xmlUrl="https://www.mysql.com/mysql.rss" htmlUrl="https://www.mysql.com/news-and-events/news/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.mysql.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Platform Engineering" text="Platform Engineering">
+      <outline text="Get Better at Getting Better on" title="Get Better at Getting Better on" type="rss" xmlUrl="https://dora.dev/index.xml" htmlUrl="https://dora.dev/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/dora.dev" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Career" text="Career">
+      <outline text="80,000 Hours" title="80,000 Hours" type="rss" xmlUrl="https://80000hours.org/feed/" htmlUrl="https://80000hours.org" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/80000hours.org" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Public Speaking" text="Public Speaking">
+      <outline text="TED-Ed" title="TED-Ed" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCsooa4yRKGN_zEE8iknghZA" htmlUrl="http://www.youtube.com/channel/UCsooa4yRKGN_zEE8iknghZA" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.youtube.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="David Heinemeier Hansson" title="David Heinemeier Hansson" type="rss" xmlUrl="https://world.hey.com/dhh/feed.atom" htmlUrl="https://world.hey.com/dhh" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/world.hey.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="ThePrimeTime" title="ThePrimeTime" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCUyeluBRhGPCW4rPe_UvBZQ" htmlUrl="https://www.youtube.com/channel/UCUyeluBRhGPCW4rPe_UvBZQ" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/www.youtube.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+      <outline text="Mohammad Aziz" title="Mohammad Aziz" type="rss" xmlUrl="https://iaziz786.com/index.xml" htmlUrl="https://iaziz786.com/" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/iaziz786.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+    <outline title="Misc" text="Misc">
+      <outline text="CtrlShiftStore" title="CtrlShiftStore" type="rss" xmlUrl="https://ctrlshiftstore.com/collections/keyboards.atom" htmlUrl="https://ctrlshiftstore.com/collections/all" rssfr-numPosts="0" rssfr-favicon="https://icons.feedercdn.com/ctrlshiftstore.com" rssfr-useNotifications="0" rssfr-updateInterval="" />
+    </outline>
+  </body>
+</opml>

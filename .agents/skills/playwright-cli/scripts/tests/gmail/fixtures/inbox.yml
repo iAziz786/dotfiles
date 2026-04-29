@@ -1,0 +1,84 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - heading [level=1] [ref=e4]:
+        - link "Gmail" [ref=e5] [cursor=pointer]
+    - generic [ref=e10]:
+      - navigation [ref=e11]:
+        - link "Mail" [ref=e12] [cursor=pointer]
+      - generic [ref=e20]:
+        - button "Compose" [ref=e21] [cursor=pointer]
+        - generic [ref=e30]:
+          - link "Inbox" [ref=e31] [cursor=pointer]
+    - generic [ref=e100]:
+      - table [ref=e101]:
+        - rowgroup [ref=e102]:
+          - row "unread, Google 2, Security alert, 5:36 PM, A new sign-in on Mac test@example.com We noticed a new sign-in to your Google Account on a Mac device. If this was you, you don't need to do anything." [ref=e200] [cursor=pointer]:
+            - gridcell [ref=e201]
+            - gridcell "unread, Google 2, Security alert, 5:36 PM, A new sign-in on Mac test@example.com We noticed a new sign-in to your Google Account on a Mac device. If this was you, you don't need to do anything." [ref=e202]:
+              - checkbox "unread, Google 2, Security alert, 5:36 PM, A new sign-in on Mac test@example.com We noticed a new sign-in to your Google Account on a Mac device. If this was you, you don't need to do anything." [ref=e203]
+            - gridcell "Not starred" [ref=e204]:
+              - button "Not starred" [ref=e205]
+            - gridcell "Important because previous messages in the conversation were important." [ref=e206]:
+              - switch "Important because previous messages in the conversation were important." [checked] [ref=e207]
+            - gridcell "Google 2" [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e210]: Google
+                - generic [ref=e211]: "2"
+            - gridcell "Security alert - A new sign-in on Mac test@example.com We noticed a new sign-in to your Google Account on a Mac device. If this was you, you don't need to do anything" [ref=e212]:
+              - link "Security alert - A new sign-in on Mac test@example.com We noticed a new sign-in to your Google Account on a Mac device. If this was you, you don't need to do anything" [ref=e213]:
+                - generic [ref=e214]:
+                  - generic [ref=e215]: Security alert
+                  - generic [ref=e216]:
+                    - generic [ref=e217]: "-"
+                    - text: A new sign-in on Mac test@example.com We noticed a new sign-in to your Google Account on a Mac device. If this was you, you don't need to do anything
+            - gridcell [ref=e218]
+            - gridcell "Wed, Apr 29, 2026, 5:36 PM" [ref=e219]:
+              - generic "Wed, Apr 29, 2026, 5:36 PM" [ref=e220]: 5:36 PM
+            - gridcell
+          - row "GitHub, Re: feat: add new endpoint, Apr 28, Some comment on your PR." [ref=e300] [cursor=pointer]:
+            - gridcell [ref=e301]
+            - gridcell "GitHub, Re: feat: add new endpoint, Apr 28, Some comment on your PR." [ref=e302]:
+              - checkbox "GitHub, Re: feat: add new endpoint, Apr 28, Some comment on your PR." [ref=e303]
+            - gridcell "Not starred" [ref=e304]:
+              - button "Not starred" [ref=e305]
+            - gridcell "Not important" [ref=e306]:
+              - switch "Not important" [ref=e307]
+            - gridcell "GitHub" [ref=e308]:
+              - generic [ref=e310]: GitHub
+            - gridcell "Re: feat: add new endpoint - Some comment on your PR." [ref=e312]:
+              - link "Re: feat: add new endpoint - Some comment on your PR." [ref=e313]:
+                - generic [ref=e314]:
+                  - generic [ref=e315]: Re: feat: add new endpoint
+                  - generic [ref=e316]:
+                    - generic [ref=e317]: "-"
+                    - text: Some comment on your PR.
+            - gridcell [ref=e318]
+            - gridcell "Tue, Apr 28, 2026, 10:00 AM" [ref=e319]:
+              - generic "Tue, Apr 28, 2026, 10:00 AM" [ref=e320]: Apr 28
+            - gridcell
+          - row "unread, corp . stmnts @ ici., Account Statement from ICICI Bank, has attachment, 3:05 AM, The content provided herein above is for the purpose of giving information only." [ref=e400] [cursor=pointer]:
+            - gridcell [ref=e401]
+            - gridcell "unread, corp . stmnts @ ici., Account Statement from ICICI Bank, has attachment, 3:05 AM, The content provided herein above is for the purpose of giving information only." [ref=e402]:
+              - checkbox "unread, corp . stmnts @ ici., Account Statement from ICICI Bank, has attachment, 3:05 AM, The content provided herein above is for the purpose of giving information only." [ref=e403]
+            - gridcell "Not starred" [ref=e404]:
+              - button "Not starred" [ref=e405]
+            - gridcell "Important mainly because it was sent directly to you." [ref=e406]:
+              - switch "Important mainly because it was sent directly to you." [checked] [ref=e407]
+            - gridcell "corp . stmnts @ ici." [ref=e408]:
+              - generic [ref=e410]: corp . stmnts @ ici.
+            - gridcell "Account Statement from ICICI Bank - The content provided herein above is for the purpose of giving information only. Attachment: statement.txt" [ref=e412]:
+              - link "Account Statement from ICICI Bank - The content provided herein above is for the purpose of giving information only." [ref=e413]:
+                - generic [ref=e414]:
+                  - generic [ref=e415]: Account Statement from ICICI Bank
+                  - generic [ref=e416]:
+                    - generic [ref=e417]: "-"
+                    - text: The content provided herein above is for the purpose of giving information only.
+              - generic "statement.txt" [ref=e418]:
+                - generic [ref=e419]: "Attachment:"
+                - img [ref=e420]
+                - generic [ref=e421]: statement.txt
+            - gridcell [ref=e422]
+            - gridcell "Wed, Apr 29, 2026, 3:05 AM" [ref=e423]:
+              - generic "Wed, Apr 29, 2026, 3:05 AM" [ref=e424]: 3:05 AM
+            - gridcell

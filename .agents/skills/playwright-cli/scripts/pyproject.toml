@@ -1,0 +1,11 @@
+[project]
+name = "pwcli"
+version = "1.0.0"
+description = "Tools for working with playwright-cli output"
+requires-python = ">=3.10"
+
+[project.scripts]
+parse-gmail-snapshot = "pwcli.gmail.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
