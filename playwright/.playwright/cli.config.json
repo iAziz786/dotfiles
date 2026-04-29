@@ -1,0 +1,6 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "userDataDir": "/Users/aziz/.local/share/playwright/profile"
+  }
+}

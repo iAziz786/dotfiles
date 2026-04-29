@@ -1,1 +1,6 @@
 history.txt
+__pycache__/
+*.pyc
+.venv/
+uv.lock
+.playwright-cli/

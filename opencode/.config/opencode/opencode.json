@@ -7,13 +7,15 @@
       "oauth": {},
       "enabled": false
     },
-    "playwright": {
+    "chrome-devtools": {
       "type": "local",
       "command": [
-        "npx",
-        "@playwright/mcp@latest"
+        "bunx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics"
       ],
       "enabled": false
-    },
+    }
   }
 }

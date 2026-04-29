@@ -1,0 +1,1 @@
+/Users/aziz/.config/opencode/commands/cloudflare:build-mcp.md
