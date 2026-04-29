@@ -130,9 +130,6 @@ alias n="nvim"
 # Opening zellij
 alias zj="zellij"
 
-# Creating local tunnel, create URL at: https://iaziz786.loca.lt/
-alias "clt"="lt --port 8080 --subdomain iaziz786 &"
-
 # Add zig if exist
 [[ -d "$HOME/.zig" ]] && export PATH="$PATH:$HOME/.zig"
 
@@ -220,3 +217,7 @@ fi
 
 # opencode
 [[ -d "$HOME/.opencode/bin" ]] && export PATH="$HOME/.opencode/bin:$PATH"
+
+# opencode
+export PATH=/Users/aziz/.opencode/bin:$PATH
+alias oc="opencode"
