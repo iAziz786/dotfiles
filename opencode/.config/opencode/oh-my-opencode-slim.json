@@ -1,0 +1,131 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "aziz",
+  "presets": {
+    "aziz": {
+      "orchestrator": {
+        "model": "openai/gpt-5.5",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*",
+          "!context7"
+        ]
+      },
+      "oracle": {
+        "model": "github-copilot/gemini-3.1-pro-preview",
+        "variant": "high",
+        "skills": [
+          "simplify"
+        ],
+        "mcps": []
+      },
+      "council": {
+        "model": "github-copilot/gpt-5.4",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "skills": [],
+        "mcps": [
+          "websearch",
+          "context7",
+          "grep_app"
+        ]
+      },
+      "explorer": {
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "github-copilot/gemini-3.1-pro-preview",
+        "variant": "medium",
+        "skills": [
+          "agent-browser"
+        ],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      }
+    },
+    "opencode-go": {
+      "orchestrator": {
+        "model": "opencode-go/glm-5.1",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*",
+          "!context7"
+        ]
+      },
+      "oracle": {
+        "model": "opencode-go/deepseek-v4-pro",
+        "variant": "max",
+        "skills": [
+          "simplify"
+        ],
+        "mcps": []
+      },
+      "council": {
+        "model": "opencode-go/deepseek-v4-pro",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "opencode-go/minimax-m2.7",
+        "skills": [],
+        "mcps": [
+          "websearch",
+          "context7",
+          "grep_app"
+        ]
+      },
+      "explorer": {
+        "model": "opencode-go/minimax-m2.7",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "opencode-go/kimi-k2.6",
+        "variant": "medium",
+        "skills": [
+          "agent-browser"
+        ],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      }
+    }
+  },
+  "council": {
+    "presets": {
+      "default": {
+        "alpha": {
+          "model": "github-copilot/claude-sonnet-4.6",
+          "variant": "high"
+        },
+        "beta": {
+          "model": "github-copilot/gemini-3.1-pro-preview",
+          "variant": "high"
+        },
+        "gamma": {
+          "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo"
+        }
+      }
+    }
+  }
+}
