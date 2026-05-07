@@ -32,7 +32,7 @@ import numpy as np
 # Configuration
 LINKEDIN_URL = "https://www.linkedin.com/company/110597504/admin/page-posts/published/"
 MAX_POSTS = 10
-OUTPUT_DIR = Path.home() / ".linkedin-analytics"
+OUTPUT_DIR = Path.home() / ".local" / "linkedin-analytics"
 
 
 @dataclass

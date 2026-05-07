@@ -388,6 +388,7 @@ playwright-cli show --annotate
 
 ## Specific tasks
 
+* **LinkedIn Company Page Analytics** — When asked to scrape LinkedIn post analytics or generate engagement reports, use `scripts/src/pwcli/linkedin/analytics.py`. See details below.
 * **Checking email with playwright-cli** — When asked to check emails, read `references/checking-emails.md` and follow the workflow there. Use `scripts/scan-gmail.py` to scan all tabs, then `scripts/parse-gmail-snapshot.py` for individual emails.
 * **Running and Debugging Playwright tests** [references/playwright-tests.md](references/playwright-tests.md)
 * **Request mocking** [references/request-mocking.md](references/request-mocking.md)
@@ -398,3 +399,83 @@ playwright-cli show --annotate
 * **Tracing** [references/tracing.md](references/tracing.md)
 * **Video recording** [references/video-recording.md](references/video-recording.md)
 * **Inspecting element attributes** [references/element-attributes.md](references/element-attributes.md)
+
+## LinkedIn Company Page Analytics
+
+Scrape LinkedIn company page post analytics and generate visualizations. This tool automatically visits your LinkedIn company page, extracts post data (excluding ads), and creates a comprehensive analytics dashboard.
+
+### Usage
+
+```bash
+cd /Users/aziz/Documents/github.com/iAziz786/dotfiles/.agents/skills/playwright-cli/scripts
+uv run linkedin-analytics
+```
+
+### What It Does
+
+1. **Opens LinkedIn** company page admin (requires prior authentication)
+2. **Expands analytics** by clicking all "Preview results" buttons
+3. **Scrapes last 10 posts** (excluding sponsored/ad posts)
+4. **Generates 4-panel visualization** dashboard with:
+   - Engagement Rate by Post
+   - Click-Through Rate by Post
+   - Impressions vs Engagements (bubble size = reactions)
+   - Reactions vs Reposts
+5. **Exports CSV** with all post data
+6. **Prints image path** for easy opening
+
+### Metrics Tracked
+
+- Impressions
+- Engagements
+- Engagement Rate (%)
+- Clicks
+- Click-Through Rate (%)
+- Reactions
+- Comments
+- Reposts
+
+### Output Files
+
+Files are saved to `~/.local/linkedin-analytics/`:
+- **PNG Image**: `linkedin_analytics_YYYYMMDD_HHMMSS.png`
+- **CSV Data**: `linkedin_posts_YYYYMMDD_HHMMSS.csv`
+
+### View Results
+
+```bash
+# The script prints the path, or find latest:
+ls -t ~/.local/linkedin-analytics/*.png | head -1 | xargs open
+```
+
+### Requirements
+
+- Python 3.10+
+- playwright-cli (must be installed)
+- UV package manager
+- LinkedIn account with company page admin access
+- Pre-authenticated browser session (login to LinkedIn first)
+
+### How It Works
+
+The script uses a **tree-based YAML parser** to parse Playwright accessibility snapshots:
+- Parses indentation to build parent-child relationships
+- Detects post sections by "Feed post number X" headings
+- Extracts analytics from "Post performance" sections
+- Filters out ad posts (those without analytics sections)
+- Handles edge cases: comma-separated numbers, singular/plural labels, content pollution
+
+### Troubleshooting
+
+**No posts found**: Ensure you're logged into LinkedIn and have admin access to the company page.
+
+**Timeout errors**: LinkedIn may load slowly. The script has built-in retries.
+
+**Missing analytics**: The script automatically clicks "Preview results" buttons. If some posts still show 0 impressions, they may be too new (data not yet available).
+
+### Configuration
+
+Edit `scripts/src/pwcli/linkedin/analytics.py` to change:
+- `LINKEDIN_URL` - Company page URL
+- `MAX_POSTS` - Number of posts to scrape (default: 10)
+- `OUTPUT_DIR` - Where to save files

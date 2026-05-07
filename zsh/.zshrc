@@ -126,6 +126,7 @@ alias ls="eza --all --long --icons --git"
 
 
 alias n="nvim"
+alias rm="rip"
 
 # Opening zellij
 alias zj="zellij"
@@ -221,3 +222,9 @@ fi
 # opencode
 export PATH=/Users/aziz/.opencode/bin:$PATH
 alias oc="opencode"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/private/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/private/tmp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/private/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/private/tmp/google-cloud-sdk/completion.zsh.inc'; fi

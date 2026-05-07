@@ -1,6 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
+    "aws-mcp": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "mcp-proxy-for-aws@latest",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--metadata",
+        "AWS_REGION=ap-south-1"
+      ],
+      "enabled": false
+    },
     "slack": {
       "type": "remote",
       "url": "https://mcp.slack.com/mcp",

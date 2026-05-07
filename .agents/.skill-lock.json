@@ -1,0 +1,402 @@
+{
+  "version": 3,
+  "skills": {
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "skillFolderHash": "121eecacd86c0aab06aef5cd4663e80c5397cd41",
+      "installedAt": "2026-05-02T08:00:30.349Z",
+      "updatedAt": "2026-05-02T09:39:59.158Z"
+    },
+    "aws-cleanrooms": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/analytics-skills/aws-cleanrooms/SKILL.md",
+      "skillFolderHash": "b80fb407793b8d006af37c461ba3c5b46794ce7f",
+      "installedAt": "2026-05-08T02:34:57.202Z",
+      "updatedAt": "2026-05-08T02:34:57.202Z"
+    },
+    "connecting-to-data-source": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/analytics-skills/connecting-to-data-source/SKILL.md",
+      "skillFolderHash": "fdf1a9393a6f69a1af34c7f4c62a8faed79fb47b",
+      "installedAt": "2026-05-08T02:34:57.204Z",
+      "updatedAt": "2026-05-08T02:34:57.204Z"
+    },
+    "creating-data-lake-table": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/analytics-skills/creating-data-lake-table/SKILL.md",
+      "skillFolderHash": "e002d486de553feac687ee4ba99af15e75993efa",
+      "installedAt": "2026-05-08T02:34:57.204Z",
+      "updatedAt": "2026-05-08T02:34:57.204Z"
+    },
+    "exploring-data-catalog": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/analytics-skills/exploring-data-catalog/SKILL.md",
+      "skillFolderHash": "4465693dcbb638f022b1505f50fb5e87fd746408",
+      "installedAt": "2026-05-08T02:34:57.204Z",
+      "updatedAt": "2026-05-08T02:34:57.204Z"
+    },
+    "finding-data-lake-assets": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/analytics-skills/finding-data-lake-assets/SKILL.md",
+      "skillFolderHash": "59fe4adaa717e7d9fb77d82681a26d610f48544a",
+      "installedAt": "2026-05-08T02:34:57.204Z",
+      "updatedAt": "2026-05-08T02:34:57.204Z"
+    },
+    "ingesting-into-data-lake": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/analytics-skills/ingesting-into-data-lake/SKILL.md",
+      "skillFolderHash": "ce8177c4719c055afa851b1622699d3f1556fb4c",
+      "installedAt": "2026-05-08T02:34:57.205Z",
+      "updatedAt": "2026-05-08T02:34:57.205Z"
+    },
+    "querying-data-lake": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/analytics-skills/querying-data-lake/SKILL.md",
+      "skillFolderHash": "1266553803006b206ef0a072ef64e007eea2a787",
+      "installedAt": "2026-05-08T02:34:57.205Z",
+      "updatedAt": "2026-05-08T02:34:57.205Z"
+    },
+    "aws-messaging-and-streaming": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/application-integration-skills/aws-messaging-and-streaming/SKILL.md",
+      "skillFolderHash": "5ab79526db0a98dae1970c69c2d989b975a1493d",
+      "installedAt": "2026-05-08T02:34:57.205Z",
+      "updatedAt": "2026-05-08T02:34:57.205Z"
+    },
+    "aws-billing-and-cost-management": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/cloud-financial-management-skills/aws-billing-and-cost-management/SKILL.md",
+      "skillFolderHash": "9dc888f5f189c7b211e2d36793cb1253ce98953c",
+      "installedAt": "2026-05-08T02:34:57.206Z",
+      "updatedAt": "2026-05-08T02:34:57.206Z"
+    },
+    "aws-containers": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/aws-containers/SKILL.md",
+      "skillFolderHash": "017cb03b8e4f4bced10db287a4292507ff633753",
+      "installedAt": "2026-05-08T02:34:57.206Z",
+      "updatedAt": "2026-05-08T02:34:57.206Z"
+    },
+    "aws-serverless": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/aws-serverless/SKILL.md",
+      "skillFolderHash": "cc41705dc06b1ca0fcbde1680cc5b5bcda64c2d2",
+      "installedAt": "2026-05-08T02:34:57.206Z",
+      "updatedAt": "2026-05-08T02:34:57.206Z"
+    },
+    "connecting-lambda-to-api-gateway": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/connecting-lambda-to-api-gateway/SKILL.md",
+      "skillFolderHash": "80e0dfcca4bc14f12b06ba613cfdc979681f0c43",
+      "installedAt": "2026-05-08T02:34:57.207Z",
+      "updatedAt": "2026-05-08T02:34:57.207Z"
+    },
+    "connecting-lambda-to-dynamodb": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/connecting-lambda-to-dynamodb/SKILL.md",
+      "skillFolderHash": "762da6fb1de0d08103abefe49a297eeabbe23ef1",
+      "installedAt": "2026-05-08T02:34:57.207Z",
+      "updatedAt": "2026-05-08T02:34:57.207Z"
+    },
+    "creating-api-gateway-stage": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/creating-api-gateway-stage/SKILL.md",
+      "skillFolderHash": "aa4383643c66913d2aab87f7db82cb844dda722b",
+      "installedAt": "2026-05-08T02:34:57.207Z",
+      "updatedAt": "2026-05-08T02:34:57.207Z"
+    },
+    "creating-ec2-image-builder-pipeline": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/creating-ec2-image-builder-pipeline/SKILL.md",
+      "skillFolderHash": "d49b1ae433714535d6cd29c6da33e7a645c361e0",
+      "installedAt": "2026-05-08T02:34:57.207Z",
+      "updatedAt": "2026-05-08T02:34:57.207Z"
+    },
+    "debugging-lambda-timeouts": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/debugging-lambda-timeouts/SKILL.md",
+      "skillFolderHash": "bf7b53b5fed2fa75250838c57e9c40e3b754580b",
+      "installedAt": "2026-05-08T02:34:57.208Z",
+      "updatedAt": "2026-05-08T02:34:57.208Z"
+    },
+    "launching-ec2-instance-with-best-practices": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/launching-ec2-instance-with-best-practices/SKILL.md",
+      "skillFolderHash": "e50b82e9b67a9da646144c6ad02c7811e28dd930",
+      "installedAt": "2026-05-08T02:34:57.208Z",
+      "updatedAt": "2026-05-08T02:34:57.208Z"
+    },
+    "routing-traffic-with-route53-and-cloudfront": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/routing-traffic-with-route53-and-cloudfront/SKILL.md",
+      "skillFolderHash": "ea90e85557da03144c28e321ddfa9574dca3a063",
+      "installedAt": "2026-05-08T02:34:57.208Z",
+      "updatedAt": "2026-05-08T02:34:57.208Z"
+    },
+    "setting-up-ec2-instance-profiles": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/compute-skills/setting-up-ec2-instance-profiles/SKILL.md",
+      "skillFolderHash": "c26b1086801dde18805963ddf3320d6c10c5b3a5",
+      "installedAt": "2026-05-08T02:34:57.209Z",
+      "updatedAt": "2026-05-08T02:34:57.209Z"
+    },
+    "creating-amazon-aurora-db-cluster-with-instances": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/database-skills/creating-amazon-aurora-db-cluster-with-instances/SKILL.md",
+      "skillFolderHash": "203a74e7dd1f77ce262d83af9b26879a2d3a016f",
+      "installedAt": "2026-05-08T02:34:57.209Z",
+      "updatedAt": "2026-05-08T02:34:57.209Z"
+    },
+    "exporting-rds-to-s3": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/database-skills/exporting-rds-to-s3/SKILL.md",
+      "skillFolderHash": "c962322eb8138f07034c6c3c27a1193a7f2589ef",
+      "installedAt": "2026-05-08T02:34:57.209Z",
+      "updatedAt": "2026-05-08T02:34:57.209Z"
+    },
+    "aws-cdk": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/developer-tools-skills/aws-cdk/SKILL.md",
+      "skillFolderHash": "8dc8340aa5c9bec5e46005e95760a1eea790612c",
+      "installedAt": "2026-05-08T02:34:57.210Z",
+      "updatedAt": "2026-05-08T02:34:57.210Z"
+    },
+    "aws-sdk-js-v3-usage": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/developer-tools-skills/aws-sdk-js-v3-usage/SKILL.md",
+      "skillFolderHash": "62ae8b88569e68b87ed62072dc17867e795781d3",
+      "installedAt": "2026-05-08T02:34:57.210Z",
+      "updatedAt": "2026-05-08T02:34:57.210Z"
+    },
+    "aws-sdk-python-usage": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/developer-tools-skills/aws-sdk-python-usage/SKILL.md",
+      "skillFolderHash": "b5a86516c050d6ff82d964d2e1105c34095e4ad6",
+      "installedAt": "2026-05-08T02:34:57.210Z",
+      "updatedAt": "2026-05-08T02:34:57.210Z"
+    },
+    "aws-sdk-swift-usage": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/developer-tools-skills/aws-sdk-swift-usage/SKILL.md",
+      "skillFolderHash": "b09094fc5e414983df038fe40a2d34c433ca2d14",
+      "installedAt": "2026-05-08T02:34:57.211Z",
+      "updatedAt": "2026-05-08T02:34:57.211Z"
+    },
+    "aws-amplify": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/frontend-skills/aws-amplify/SKILL.md",
+      "skillFolderHash": "c5b539171b79500d87b02c65afc09be47ae3a781",
+      "installedAt": "2026-05-08T02:34:57.211Z",
+      "updatedAt": "2026-05-08T02:34:57.211Z"
+    },
+    "amazon-bedrock": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/generative-ai-skills/amazon-bedrock/SKILL.md",
+      "skillFolderHash": "28660af7f6b6a3cb5b2e8a21180f0da6ebcb2cb9",
+      "installedAt": "2026-05-08T02:34:57.211Z",
+      "updatedAt": "2026-05-08T02:34:57.211Z"
+    },
+    "aws-cloudformation": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/management-tools-skills/aws-cloudformation/SKILL.md",
+      "skillFolderHash": "69a91535a43dfdc533236be21d6ffc5b34203e93",
+      "installedAt": "2026-05-08T02:34:57.212Z",
+      "updatedAt": "2026-05-08T02:34:57.212Z"
+    },
+    "aws-transform": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/migration-and-modernization-skills/aws-transform/SKILL.md",
+      "skillFolderHash": "936ccdc2f0aa7fa640ff945c0ab4e5c431a7841a",
+      "installedAt": "2026-05-08T02:34:57.212Z",
+      "updatedAt": "2026-05-08T02:34:57.212Z"
+    },
+    "configuring-vpc-endpoints-for-private-aws-service-access": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/networking-and-content-delivery-skills/configuring-vpc-endpoints-for-private-aws-service-access/SKILL.md",
+      "skillFolderHash": "76457e7c587bd9645ac96d826c9eb79f99d1a4b9",
+      "installedAt": "2026-05-08T02:34:57.212Z",
+      "updatedAt": "2026-05-08T02:34:57.212Z"
+    },
+    "connecting-vpcs-with-peering": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/networking-and-content-delivery-skills/connecting-vpcs-with-peering/SKILL.md",
+      "skillFolderHash": "8ed93fac71631b3ac7cddb54164af9e0ecf0453e",
+      "installedAt": "2026-05-08T02:34:57.213Z",
+      "updatedAt": "2026-05-08T02:34:57.213Z"
+    },
+    "creating-production-vpc-multi-az": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/networking-and-content-delivery-skills/creating-production-vpc-multi-az/SKILL.md",
+      "skillFolderHash": "43bdf725c9dd95e32e39ecfda4611be37fd0f573",
+      "installedAt": "2026-05-08T02:34:57.213Z",
+      "updatedAt": "2026-05-08T02:34:57.213Z"
+    },
+    "enabling-lambda-vpc-internet-access": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/networking-and-content-delivery-skills/enabling-lambda-vpc-internet-access/SKILL.md",
+      "skillFolderHash": "15c7631388cdb45b054f2ddd9cfb1f02e3bc81cd",
+      "installedAt": "2026-05-08T02:34:57.213Z",
+      "updatedAt": "2026-05-08T02:34:57.213Z"
+    },
+    "aws-observability": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/operations-skills/aws-observability/SKILL.md",
+      "skillFolderHash": "cbe016ec1e11ace37ef44cd3fcb073af99d11052",
+      "installedAt": "2026-05-08T02:34:57.214Z",
+      "updatedAt": "2026-05-08T02:34:57.214Z"
+    },
+    "setting-up-cloudtrail-multi-region": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/operations-skills/setting-up-cloudtrail-multi-region/SKILL.md",
+      "skillFolderHash": "c9a911c9edba7d4646b39762f44396979ed564dd",
+      "installedAt": "2026-05-08T02:34:57.214Z",
+      "updatedAt": "2026-05-08T02:34:57.214Z"
+    },
+    "setting-up-cloudwatch-alarm-notifications": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/operations-skills/setting-up-cloudwatch-alarm-notifications/SKILL.md",
+      "skillFolderHash": "8a3719681b1ea1b4ac3081660fef606be9b2b97c",
+      "installedAt": "2026-05-08T02:34:57.214Z",
+      "updatedAt": "2026-05-08T02:34:57.214Z"
+    },
+    "troubleshooting-application-failures": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/operations-skills/troubleshooting-application-failures/SKILL.md",
+      "skillFolderHash": "75db7ac1a70f399dbc8068e610e9f89774edf3bb",
+      "installedAt": "2026-05-08T02:34:57.214Z",
+      "updatedAt": "2026-05-08T02:34:57.214Z"
+    },
+    "aws-iam": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/security-and-identity-skills/aws-iam/SKILL.md",
+      "skillFolderHash": "667f7853452e6dd8ff9c8aeec2a5613f46d5f843",
+      "installedAt": "2026-05-08T02:34:57.215Z",
+      "updatedAt": "2026-05-08T02:34:57.215Z"
+    },
+    "creating-secrets-using-best-practices": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/security-and-identity-skills/creating-secrets-using-best-practices/SKILL.md",
+      "skillFolderHash": "5f7fcd14f274f94619f8aeb68b7b9e6a26d1d3a5",
+      "installedAt": "2026-05-08T02:34:57.215Z",
+      "updatedAt": "2026-05-08T02:34:57.215Z"
+    },
+    "securing-s3-buckets": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/storage-skills/securing-s3-buckets/SKILL.md",
+      "skillFolderHash": "5b9ad4ca5296ec8bf36ecd853fcad465cd6f9e84",
+      "installedAt": "2026-05-08T02:34:57.215Z",
+      "updatedAt": "2026-05-08T02:34:57.215Z"
+    },
+    "storing-and-querying-vectors": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/storage-skills/storing-and-querying-vectors/SKILL.md",
+      "skillFolderHash": "88b15245e5571e329a3a2b7082fee10eb28d8c31",
+      "installedAt": "2026-05-08T02:34:57.216Z",
+      "updatedAt": "2026-05-08T02:34:57.216Z"
+    },
+    "troubleshooting-efs": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/storage-skills/troubleshooting-efs/SKILL.md",
+      "skillFolderHash": "8dc5677a0139655d26031e31c380ec189a3a40aa",
+      "installedAt": "2026-05-08T02:34:57.216Z",
+      "updatedAt": "2026-05-08T02:34:57.216Z"
+    },
+    "troubleshooting-s3-files": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/storage-skills/troubleshooting-s3-files/SKILL.md",
+      "skillFolderHash": "58bd3c28eea95066415cd8e5c30709075ddf63a0",
+      "installedAt": "2026-05-08T02:34:57.216Z",
+      "updatedAt": "2026-05-08T02:34:57.216Z"
+    }
+  },
+  "dismissed": {}
+}

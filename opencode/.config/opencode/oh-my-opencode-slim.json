@@ -4,7 +4,7 @@
   "presets": {
     "aziz": {
       "orchestrator": {
-        "model": "openai/gpt-5.5",
+        "model": "github-copilot/gpt-5.5",
         "skills": [
           "*"
         ],
@@ -23,12 +23,12 @@
       },
       "council": {
         "model": "github-copilot/gpt-5.4",
-        "variant": "high",
+        "variant": "xhigh",
         "skills": [],
         "mcps": []
       },
       "librarian": {
-        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "model": "github-copilot/gpt-5.4-mini",
         "skills": [],
         "mcps": [
           "websearch",
@@ -51,14 +51,14 @@
       },
       "fixer": {
         "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
-        "variant": "high",
+        "variant": "medium",
         "skills": [],
         "mcps": []
       }
     },
-    "opencode-go": {
+    "opencode-go-fireworks": {
       "orchestrator": {
-        "model": "opencode-go/glm-5.1",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
         "skills": [
           "*"
         ],
@@ -82,7 +82,7 @@
         "mcps": []
       },
       "librarian": {
-        "model": "opencode-go/minimax-m2.7",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
         "skills": [],
         "mcps": [
           "websearch",
@@ -91,7 +91,7 @@
         ]
       },
       "explorer": {
-        "model": "opencode-go/minimax-m2.7",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
         "skills": [],
         "mcps": []
       },
@@ -104,16 +104,17 @@
         "mcps": []
       },
       "fixer": {
-        "model": "opencode-go/deepseek-v4-flash",
-        "variant": "high",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
         "skills": [],
         "mcps": []
       }
     }
   },
   "council": {
+    "default_preset": "opencode-go-fireworks",
+    "timeout": 600000,
     "presets": {
-      "default": {
+      "aziz": {
         "alpha": {
           "model": "github-copilot/claude-sonnet-4.6",
           "variant": "high"
@@ -123,7 +124,21 @@
           "variant": "high"
         },
         "gamma": {
-          "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo"
+          "model": "github-copilot/gpt-5.4"
+        }
+      },
+      "opencode-go-fireworks": {
+        "alpha": {
+          "model": "opencode-go/kimi-k2.6",
+          "variant": "max"
+        },
+        "beta": {
+          "model": "opencode-go/deepseek-v4-pro",
+          "variant": "max"
+        },
+        "gamma": {
+          "model": "opencode-go/glm-5.1",
+          "variant": "max"
         }
       }
     }

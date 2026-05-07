@@ -42,13 +42,13 @@ The script will:
 
 Open the image with:
 ```bash
-open ~/.linkedin-analytics/linkedin_analytics_YYYYMMDD_HHMMSS.png
+open ~/.local/linkedin-analytics/linkedin_analytics_YYYYMMDD_HHMMSS.png
 ```
 
 ## Output
 
-- **CSV**: `~/.linkedin-analytics/linkedin_posts_YYYYMMDD_HHMMSS.csv`
-- **Image**: `~/.linkedin-analytics/linkedin_analytics_YYYYMMDD_HHMMSS.png`
+- **CSV**: `~/.local/linkedin-analytics/linkedin_posts_YYYYMMDD_HHMMSS.csv`
+- **Image**: `~/.local/linkedin-analytics/linkedin_analytics_YYYYMMDD_HHMMSS.png`
 
 ## Visualization Dashboard
 
@@ -63,7 +63,7 @@ The generated image contains 4 charts:
 Edit the script to change:
 - `LINKEDIN_URL` - Company page URL
 - `MAX_POSTS` - Number of posts to scrape (default: 10)
-- `OUTPUT_DIR` - Where to save files (default: `~/.linkedin-analytics`)
+- `OUTPUT_DIR` - Where to save files (default: `~/.local/linkedin-analytics`)
 
 ## Requirements
 

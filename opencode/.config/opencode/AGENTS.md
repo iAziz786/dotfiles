@@ -53,6 +53,8 @@
 - Python: prefer `uv`
 - Prefer `rg` over `grep`, `fd` over `find`
 - Use `github-issue-spec` skill for GitHub issues.
+- `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
+- When running `npx skills` or `bunx skills`, always use `--agent opencode` to scope skills to opencode only.
 
 ## Caveman
 

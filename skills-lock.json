@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "skills": {
+    "gws-calendar": {
+      "source": "googleworkspace/cli",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "skills/gws-calendar/SKILL.md",
+      "computedHash": "0c5956e1069552444b00bf45381f08ffa9a7bca9810fefb1801866216008bcfc"
+    },
+    "gws-gmail": {
+      "source": "googleworkspace/cli",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "skills/gws-gmail/SKILL.md",
+      "computedHash": "5e5b5fdb4b4f347310d929657ed773abcaf528b5ac0a68deee12d3d38d307642"
+    },
+    "gws-meet": {
+      "source": "googleworkspace/cli",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "skills/gws-meet/SKILL.md",
+      "computedHash": "7186520b77ca74133bc1d6c9dedbe2502bad70a095d0c2881859324a45d120f1"
+    }
+  }
+}
