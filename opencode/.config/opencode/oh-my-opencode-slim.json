@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-  "preset": "aziz",
+  "preset": "opencode-go-fireworks",
   "presets": {
     "aziz": {
       "orchestrator": {
@@ -37,7 +37,7 @@
         ]
       },
       "explorer": {
-        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p6-turbo",
         "skills": [],
         "mcps": []
       },
@@ -50,7 +50,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p6-turbo",
         "variant": "medium",
         "skills": [],
         "mcps": []
@@ -58,7 +58,7 @@
     },
     "opencode-go-fireworks": {
       "orchestrator": {
-        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p6-turbo",
         "skills": [
           "*"
         ],
@@ -82,7 +82,7 @@
         "mcps": []
       },
       "librarian": {
-        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p6-turbo",
         "skills": [],
         "mcps": [
           "websearch",
@@ -91,7 +91,7 @@
         ]
       },
       "explorer": {
-        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p6-turbo",
         "skills": [],
         "mcps": []
       },
@@ -104,7 +104,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
+        "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p6-turbo",
         "skills": [],
         "mcps": []
       }
@@ -129,7 +129,7 @@
       },
       "opencode-go-fireworks": {
         "alpha": {
-          "model": "opencode-go/kimi-k2.6",
+          "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p6-turbo",
           "variant": "max"
         },
         "beta": {
@@ -137,7 +137,7 @@
           "variant": "max"
         },
         "gamma": {
-          "model": "opencode-go/glm-5.1",
+          "model": "wafer.ai/GLM-5.1",
           "variant": "max"
         }
       }
