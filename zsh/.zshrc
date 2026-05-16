@@ -82,7 +82,7 @@ ARCH=$(uname -m)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl docker terraform aws)
+plugins=(git kubectl docker terraform aws jj)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -228,3 +228,6 @@ if [ -f '/private/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/private/tmp/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/private/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/private/tmp/google-cloud-sdk/completion.zsh.inc'; fi
+
+# sentry
+fpath=("/Users/aziz/.local/share/zsh/site-functions" $fpath)

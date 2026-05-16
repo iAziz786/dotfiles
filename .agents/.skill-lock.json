@@ -6,9 +6,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "121eecacd86c0aab06aef5cd4663e80c5397cd41",
+      "skillFolderHash": "c1470a475a0472fceda2401ea6763708a91680a8",
       "installedAt": "2026-05-02T08:00:30.349Z",
-      "updatedAt": "2026-05-02T09:39:59.158Z"
+      "updatedAt": "2026-05-08T16:07:22.397Z"
     },
     "aws-cleanrooms": {
       "source": "aws/agent-toolkit-for-aws",
