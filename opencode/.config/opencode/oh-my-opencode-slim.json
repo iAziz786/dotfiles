@@ -137,7 +137,7 @@
           "variant": "max"
         },
         "gamma": {
-          "model": "wafer.ai/GLM-5.1",
+          "model": "opencode-go/glm-5.1",
           "variant": "max"
         }
       }
