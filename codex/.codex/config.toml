@@ -1,0 +1,14 @@
+[model_providers.fireworks]
+name = "Fireworks"
+base_url = "https://api.fireworks.ai/inference/v1"
+wire_api = "responses"
+env_key = "FIREWORKS_API_KEY"
+env_key_instructions = "Set FIREWORKS_API_KEY in your environment."
+
+[profiles.fireworks]
+model_provider = "fireworks"
+model = "accounts/fireworks/routers/kimi-k2p6-turbo"
+
+[features]
+goals = true
+
