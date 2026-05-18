@@ -111,7 +111,7 @@
     }
   },
   "council": {
-    "default_preset": "opencode-go-fireworks",
+    "default_preset": "aziz",
     "timeout": 600000,
     "presets": {
       "aziz": {

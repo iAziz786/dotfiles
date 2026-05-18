@@ -8,6 +8,24 @@
       "skillPath": "skills/gws-calendar/SKILL.md",
       "computedHash": "0c5956e1069552444b00bf45381f08ffa9a7bca9810fefb1801866216008bcfc"
     },
+    "gws-docs": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/gws-docs/SKILL.md",
+      "computedHash": "10dc2a8aa8cb28524a9d285ddba5602c24c21cbb640718fce522b58d90ee7b97"
+    },
+    "gws-drive": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/gws-drive/SKILL.md",
+      "computedHash": "d637ff849b82a9fc195bcfedea260cffe94eaa31b843b28cd04313b1720bb153"
+    },
+    "gws-drive-upload": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/gws-drive-upload/SKILL.md",
+      "computedHash": "0a5cb1978c1eb483bb223363a316dc6a73998b4158c0f4ebcf18882155a57bc8"
+    },
     "gws-gmail": {
       "source": "googleworkspace/cli",
       "ref": "main",
@@ -21,6 +39,84 @@
       "sourceType": "github",
       "skillPath": "skills/gws-meet/SKILL.md",
       "computedHash": "7186520b77ca74133bc1d6c9dedbe2502bad70a095d0c2881859324a45d120f1"
+    },
+    "gws-shared": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/gws-shared/SKILL.md",
+      "computedHash": "b197590681ce3d5a52e9c15a68652b5445d111dbfc0dc453f68fb0785aac443c"
+    },
+    "gws-sheets": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/gws-sheets/SKILL.md",
+      "computedHash": "21c951f8bf399bb941740ab8b048157b43088ad96b743976e88abb0046d263d2"
+    },
+    "gws-tasks": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/gws-tasks/SKILL.md",
+      "computedHash": "c18db1a0ddecb2c4f1d3999d4021c77da621b51da6e9b4a24783a4ef16859c76"
+    },
+    "persona-content-creator": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/persona-content-creator/SKILL.md",
+      "computedHash": "15b305780d8b3e4228cbed67a278b088e255465d6533a86781ac7775fbe92b3a"
+    },
+    "recipe-bulk-download-folder": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-bulk-download-folder/SKILL.md",
+      "computedHash": "33f1f77f9fc4397fe2abad6e42e2e434f5e2c36c47f5a68827f230844d8ff892"
+    },
+    "recipe-create-doc-from-template": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-create-doc-from-template/SKILL.md",
+      "computedHash": "dc49e1a728fd73ce6fdb4443dd91c5519cc77efc7685c7e9fdcbf9a4245ebd75"
+    },
+    "recipe-create-shared-drive": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-create-shared-drive/SKILL.md",
+      "computedHash": "629c8dc5c3c7d9d970ef8facc72c3d3310a2dca2c620e16a714d00cd56c4bca6"
+    },
+    "recipe-create-task-list": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-create-task-list/SKILL.md",
+      "computedHash": "f7b4f307c452e18f71d11b707ce101f3e1d2da884fc2fc304302086d8d0915bf"
+    },
+    "recipe-draft-email-from-doc": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-draft-email-from-doc/SKILL.md",
+      "computedHash": "c4d1b2300599b82c74b5912653c1ab4d7bf73c68b84872e547ceda1a63d80c0a"
+    },
+    "recipe-email-drive-link": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-email-drive-link/SKILL.md",
+      "computedHash": "0d083f564cf8548461c31d2d1b36ceb1d5b30f06bb2e00992dba29d0e4b4954d"
+    },
+    "recipe-find-free-time": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-find-free-time/SKILL.md",
+      "computedHash": "bc0e7c666aae2834669c55ea032616487140f92921003d7d29791d948028fca0"
+    },
+    "recipe-generate-report-from-sheet": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-generate-report-from-sheet/SKILL.md",
+      "computedHash": "9887fea88e29248dd981887d8e4b3ee14c380f53824275a27943fd274050871e"
+    },
+    "recipe-plan-weekly-schedule": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "skillPath": "skills/recipe-plan-weekly-schedule/SKILL.md",
+      "computedHash": "806ac44b1468f1c1bbdf1d0f046cbdfe927221da2f129e3e0de50770720ef8ab"
     }
   }
 }
