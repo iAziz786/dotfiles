@@ -2,7 +2,12 @@
 # OpenSpec shell completions configuration
 fpath=("/Users/aziz/.oh-my-zsh/custom/completions" $fpath)
 autoload -Uz compinit
-compinit
+# Only run compinit once per day to speed up startup
+if [[ -n ~/.zcompdump(#qN.m+1) ]]; then
+  compinit
+else
+  compinit -C
+fi
 # OPENSPEC:END
 
 # If you come from bash you might have to change your $PATH.
@@ -82,6 +87,10 @@ ARCH=$(uname -m)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# Add GOPATH/bin if go is installed (must be before oh-my-zsh for hcloud plugin)
+export PATH=$PATH:/usr/local/go/bin
+command -v go &>/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
+
 plugins=(git kubectl docker terraform aws jj hcloud)
 
 source $ZSH/oh-my-zsh.sh
@@ -115,10 +124,6 @@ source $ZSH/oh-my-zsh.sh
 # iTerm2 integration (macOS only)
 [[ "$OS" == "macos" ]] && test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Add GOPATH/bin if go is installed
-export PATH=$PATH:/usr/local/go/bin
-command -v go &>/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
-
 # My Personal aliases
 alias "$"=""
 export EZA_CONFIG_DIR=$HOME/.config/eza
@@ -146,23 +151,43 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # Add work related changes
 [ -f ~/.work.sh ] && source ~/.work.sh
 
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+# Cache dynamic completions instead of generating them every shell startup
+# Kubectl
+if [[ $commands[kubectl] ]]; then
+  if [[ ! -f "$HOME/.zsh_completions/_kubectl" ]]; then
+    mkdir -p "$HOME/.zsh_completions"
+    kubectl completion zsh > "$HOME/.zsh_completions/_kubectl"
+  fi
+  fpath=("$HOME/.zsh_completions" $fpath)
+fi
 
-[[ $commands[jj] ]] && source <(COMPLETE=zsh jj)
+# jj
+if [[ $commands[jj] ]]; then
+  if [[ ! -f "$HOME/.zsh_completions/_jj" ]]; then
+    mkdir -p "$HOME/.zsh_completions"
+    COMPLETE=zsh jj > "$HOME/.zsh_completions/_jj"
+  fi
+fi
 
 [ -f ~/.env ] && source ~/.env
 
+# Lazy-load NVM to avoid slow startup
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() {
+  unset -f nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
+# Also lazy-load node/npm/npx so they trigger nvm load
+node() { unset -f node npm npx; nvm &>/dev/null; command node "$@"; }
+npm() { unset -f node npm npx; nvm &>/dev/null; command npm "$@"; }
+npx() { unset -f node npm npx; nvm &>/dev/null; command npx "$@"; }
 
 # NeoVim paths
 [[ -d "$HOME/.local/nvim/bin" ]] && export PATH="$PATH:$HOME/.local/nvim/bin"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
-
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
 
 # Docker using layer caching
 DOCKER_BUILDKIT=1
@@ -180,12 +205,10 @@ elif [[ "$OS" == "linux" ]]; then
   [[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# Mise configuration
+# Mise configuration - only run once
 if [[ -x "$HOME/.local/bin/mise" ]]; then
-  eval "$(~/.local/bin/mise activate)"
   eval "$(~/.local/bin/mise activate zsh)"
 elif command -v mise &>/dev/null; then
-  eval "$(mise activate)"
   eval "$(mise activate zsh)"
 fi
 
@@ -212,8 +235,6 @@ eval "$(atuin init zsh)"
 # Docker CLI completions
 if [[ -d "$HOME/.docker/completions" ]]; then
   fpath=($HOME/.docker/completions $fpath)
-  autoload -Uz compinit
-  compinit
 fi
 
 # opencode
@@ -231,3 +252,12 @@ if [ -f '/private/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/private/t
 
 # sentry
 fpath=("/Users/aziz/.local/share/zsh/site-functions" $fpath)
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/aziz/.local/bin:$PATH"
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+# <<< grok installer <<<
