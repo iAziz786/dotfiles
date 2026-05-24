@@ -7,6 +7,7 @@ metadata:
   task: [configure, secure, monitor]
   persona: [developer, devops]
   workload: [security, monitoring]
+disable-model-invocation: true
 ---
 
 # Setting Up CloudTrail Multi-Region

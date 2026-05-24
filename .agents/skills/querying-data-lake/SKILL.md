@@ -13,6 +13,7 @@ metadata:
   persona: [developer, data-engineer, architect]
   workload: [data-analytics]
 argument-hint: '[SQL-query|query-name|workgroup-name|catalog-name|''profile TABLE_NAME'']'
+disable-model-invocation: true
 ---
 
 # Query Data Lake

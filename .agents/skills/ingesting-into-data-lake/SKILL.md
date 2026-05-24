@@ -20,6 +20,7 @@ metadata:
   persona: [developer, data-engineer]
   workload: [data-analytics]
 argument-hint: '[source-path|connection-name|table-name] [--target s3-tables|iceberg|parquet]'
+disable-model-invocation: true
 ---
 
 # Ingest into Data Lake

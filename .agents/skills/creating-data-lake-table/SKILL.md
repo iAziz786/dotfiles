@@ -16,6 +16,7 @@ metadata:
   persona: [developer, data-engineer]
   workload: [data-analytics]
 argument-hint: '[table-description|schema-spec]'
+disable-model-invocation: true
 ---
 
 # Create Data Lake Tables with Amazon S3 Tables

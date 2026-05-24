@@ -7,6 +7,7 @@ metadata:
   task: [configure]
   persona: [developer, devops]
   workload: [networking]
+disable-model-invocation: true
 ---
 
 # Configuring VPC Endpoints for Private AWS Service Access

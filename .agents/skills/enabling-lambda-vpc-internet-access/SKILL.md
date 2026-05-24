@@ -7,6 +7,7 @@ metadata:
   task: [configure, deploy]
   persona: [developer, devops]
   workload: [serverless, networking]
+disable-model-invocation: true
 ---
 
 # Enabling Lambda VPC Internet Access

@@ -11,6 +11,7 @@ metadata:
   task: [learn, architect, debug, deploy]
   persona: [developer, architect, devops]
   workload: [serverless, event-driven, streaming, data-analytics]
+disable-model-invocation: true
 ---
 
 # AWS Messaging & Streaming Services

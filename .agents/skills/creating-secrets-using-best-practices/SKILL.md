@@ -7,6 +7,7 @@ metadata:
   task: [create, secure, configure]
   persona: [developer, devops]
   workload: [security]
+disable-model-invocation: true
 ---
 
 # Creating Secrets Using Best Practices

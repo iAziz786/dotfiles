@@ -7,6 +7,7 @@ metadata:
   task: [debug, troubleshoot, configure]
   persona: [developer, data-engineer, analyst]
   workload: [data-collaboration, ml]
+disable-model-invocation: true
 ---
 # AWS Clean Rooms
 

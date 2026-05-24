@@ -7,6 +7,7 @@ metadata:
   task: [build, deploy, debug, optimize]
   persona: [developer, devops]
   workload: [serverless]
+disable-model-invocation: true
 ---
 
 # AWS Serverless

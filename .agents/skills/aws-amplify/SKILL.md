@@ -17,6 +17,7 @@ metadata:
   task: [build, deploy, configure]
   persona: [developer]
   workload: [full-stack, mobile]
+disable-model-invocation: true
 ---
 
 # AWS Amplify Gen2

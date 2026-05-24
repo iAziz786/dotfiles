@@ -13,6 +13,7 @@ metadata:
   persona: [developer, data-engineer, architect]
   workload: [data-analytics]
 argument-hint: '[search-term|catalog-name|database-name|s3://bucket-path|table-name]'
+disable-model-invocation: true
 ---
 
 Structured inventory and cataloging across your AWS data landscape: Glue Data Catalog with S3 Tables, Redshift-federated, and remote Iceberg catalogs.

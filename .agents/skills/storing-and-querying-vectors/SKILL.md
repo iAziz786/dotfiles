@@ -13,6 +13,7 @@ metadata:
   task: [deploy, debug, migrate]
   persona: [developer, architect]
   workload: [data-analytics]
+disable-model-invocation: true
 ---
 
 # Store and Query Vectors with Amazon S3 Vectors

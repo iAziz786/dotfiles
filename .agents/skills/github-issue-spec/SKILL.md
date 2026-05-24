@@ -1,6 +1,7 @@
 ---
 name: github-issue-spec
 description: Create a well-formed GitHub issue as a spec-style planning artifact. Use when the user asks to create a GitHub issue, open a ticket, write an issue body, plan a feature or bug as a GitHub issue, file a spec, or open a planning artifact. Follows the required template format with Problem, Acceptance Criteria, Edge Cases & Exclusions, and Dependencies. Resolves ambiguity before drafting. Does not embed implementation details unless explicitly requested.
+disable-model-invocation: true
 license: MIT
 compatibility: Designed for OpenCode and Claude Code
 metadata:

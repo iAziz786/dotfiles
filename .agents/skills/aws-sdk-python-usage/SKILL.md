@@ -2,6 +2,7 @@
 name: aws-sdk-python-usage
 description: |
   AWS SDK for Python (boto3/botocore) development patterns. You MUST use this skill when writing Python code that uses AWS services via boto3 or botocore. This includes creating service clients or resources, configuring sessions and credentials, handling errors with ClientError, using paginators and waiters, S3 file transfers and presigned URLs, DynamoDB table operations, and any boto3/botocore client configuration. Use this skill whenever Python code imports boto3 or botocore, or when the user asks about AWS operations in Python.
+disable-model-invocation: true
 ---
 
 > Do not use emojis in any code, comments, or output when this skill is active.

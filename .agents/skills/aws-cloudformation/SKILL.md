@@ -7,6 +7,7 @@ metadata:
   task: [author, validate, deploy, debug, troubleshoot]
   persona: [developer, devops, architect]
   workload: [infrastructure-as-code]
+disable-model-invocation: true
 ---
 # CloudFormation
 

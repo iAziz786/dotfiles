@@ -8,6 +8,7 @@ metadata:
   task: [migrate, upgrade, refactor, analyze]
   persona: [developer, devops, architect]
   workload: [ai, migration, modernization]
+disable-model-invocation: true
 ---
 
 # AWS Transform (ATX)

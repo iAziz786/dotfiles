@@ -7,6 +7,7 @@ metadata:
   task: [configure, deploy]
   persona: [developer, devops]
   workload: [networking]
+disable-model-invocation: true
 ---
 
 # Connecting VPCs with Peering

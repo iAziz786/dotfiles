@@ -7,6 +7,7 @@ metadata:
   task: [troubleshoot, debug, monitor]
   persona: [developer, devops]
   workload: [monitoring]
+disable-model-invocation: true
 ---
 
 # Application Failure Troubleshooting

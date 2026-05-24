@@ -7,6 +7,7 @@ metadata:
   task: [create, configure]
   persona: [developer, devops]
   workload: [database]
+disable-model-invocation: true
 ---
 
 # Creating Amazon Aurora DB Cluster with Instances

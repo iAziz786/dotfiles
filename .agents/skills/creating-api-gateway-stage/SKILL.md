@@ -7,6 +7,7 @@ metadata:
   task: [create, configure, secure]
   persona: [developer, devops]
   workload: [serverless]
+disable-model-invocation: true
 ---
 
 # Creating an API Gateway Stage

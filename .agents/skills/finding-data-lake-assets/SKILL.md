@@ -14,6 +14,7 @@ metadata:
   persona: [developer, data-engineer, architect]
   workload: [data-analytics]
 argument-hint: '[table-name|keyword|column-name|s3://path]'
+disable-model-invocation: true
 ---
 
 # Find Data Lake Assets

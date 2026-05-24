@@ -7,6 +7,7 @@ metadata:
   task: [create, configure]
   persona: [developer, devops]
   workload: [networking]
+disable-model-invocation: true
 ---
 
 # Creating a Production-Ready VPC Across Multiple Availability Zones

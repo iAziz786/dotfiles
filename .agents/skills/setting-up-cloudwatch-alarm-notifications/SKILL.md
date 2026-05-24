@@ -7,6 +7,7 @@ metadata:
   task: [configure, monitor]
   persona: [developer, devops]
   workload: [monitoring]
+disable-model-invocation: true
 ---
 
 # Setting Up CloudWatch Alarm Notifications

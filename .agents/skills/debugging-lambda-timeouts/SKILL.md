@@ -7,6 +7,7 @@ metadata:
   task: [debug, troubleshoot]
   persona: [developer, devops]
   workload: [serverless]
+disable-model-invocation: true
 ---
 
 # Debugging Lambda Timeouts

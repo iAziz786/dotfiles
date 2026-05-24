@@ -7,6 +7,7 @@ metadata:
   task: [build, deploy, debug, optimize, configure]
   persona: [developer, devops]
   workload: [observability]
+disable-model-invocation: true
 ---
 
 # AWS Observability

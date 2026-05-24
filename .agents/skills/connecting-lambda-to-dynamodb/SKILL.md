@@ -7,6 +7,7 @@ metadata:
   task: [deploy, configure]
   persona: [developer, devops]
   workload: [serverless, database]
+disable-model-invocation: true
 ---
 # Connecting Lambda to DynamoDB
 

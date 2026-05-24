@@ -7,6 +7,7 @@ metadata:
   task: [deploy, debug, optimize, design]
   persona: [developer, devops, architect]
   workload: [generative-ai, rag, agents]
+disable-model-invocation: true
 ---
 
 **IMPORTANT**: When this skill is loaded, you MUST use the reference files and procedures in this skill as your primary source of truth. Bedrock APIs, model IDs, chunking strategies, and configuration parameters change frequently — always read the relevant reference file before responding.

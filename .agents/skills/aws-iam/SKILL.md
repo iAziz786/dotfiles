@@ -11,6 +11,7 @@ metadata:
   task: [configure, secure, audit, debug]
   persona: [developer, security-engineer, devops]
   workload: [security]
+disable-model-invocation: true
 ---
 
 # AWS IAM — Common Pitfalls

@@ -12,6 +12,7 @@ metadata:
   task: [debug, troubleshoot, diagnose]
   persona: [developer, devops]
   workload: [storage]
+disable-model-invocation: true
 ---
 
 # Troubleshooting S3 Files

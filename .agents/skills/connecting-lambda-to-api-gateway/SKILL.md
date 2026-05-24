@@ -7,6 +7,7 @@ metadata:
   task: [deploy, configure, create]
   persona: [developer, devops]
   workload: [serverless]
+disable-model-invocation: true
 ---
 
 # Connecting Lambda to API Gateway

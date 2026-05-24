@@ -7,6 +7,7 @@ metadata:
   task: [create, deploy, configure]
   persona: [developer, devops]
   workload: [compute]
+disable-model-invocation: true
 ---
 
 # Creating an EC2 Image Builder Pipeline

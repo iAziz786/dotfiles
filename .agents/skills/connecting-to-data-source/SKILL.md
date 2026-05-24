@@ -17,6 +17,7 @@ metadata:
   persona: [developer, data-engineer]
   workload: [data-analytics]
 argument-hint: '[source-type|connection-name|hostname]'
+disable-model-invocation: true
 ---
 
 # Connect to Data Source

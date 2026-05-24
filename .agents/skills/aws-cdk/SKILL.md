@@ -7,6 +7,7 @@ metadata:
   task: [deploy, debug, optimize, migrate, refactor]
   persona: [developer, devops, architect]
   workload: [serverless, containers]
+disable-model-invocation: true
 ---
 
 # AWS CDK

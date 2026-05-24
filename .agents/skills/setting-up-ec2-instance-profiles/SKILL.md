@@ -7,6 +7,7 @@ metadata:
   task: [configure, secure]
   persona: [developer, devops]
   workload: [security]
+disable-model-invocation: true
 ---
 
 # Setting Up EC2 Instance Profiles

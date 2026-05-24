@@ -12,6 +12,7 @@ metadata:
   task: [secure, audit, remediate, encrypt, monitor]
   persona: [developer, security-engineer]
   workload: [storage, compliance]
+disable-model-invocation: true
 ---
 
 ## Overview

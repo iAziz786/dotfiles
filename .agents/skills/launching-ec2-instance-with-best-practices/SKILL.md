@@ -7,6 +7,7 @@ metadata:
   task: [deploy, configure, secure]
   persona: [developer, devops]
   workload: [compute]
+disable-model-invocation: true
 ---
 
 # Launching EC2 Instances with Best Practices

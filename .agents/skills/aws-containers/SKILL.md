@@ -8,6 +8,7 @@ metadata:
   persona: [developer, devops]
   workload: [containers]
 allowed-tools: [Read]
+disable-model-invocation: true
 ---
 
 # AWS Containers

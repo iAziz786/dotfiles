@@ -7,6 +7,7 @@ metadata:
   task: [migrate, configure]
   persona: [developer, devops]
   workload: [database, storage]
+disable-model-invocation: true
 ---
 # Exporting RDS/Aurora to S3
 
