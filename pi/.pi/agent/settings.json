@@ -1,7 +1,14 @@
 {
-  "lastChangelogVersion": "0.78.0",
+  "lastChangelogVersion": "0.80.3",
   "defaultProvider": "opencode-go",
-  "defaultModel": "mimo-v2.5",
-  "defaultThinkingLevel": "high",
-  "hideThinkingBlock": false
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "xhigh",
+  "hideThinkingBlock": false,
+  "packages": [
+    "git:github.com/iAziz786/pi-catppuccin",
+    "npm:pi-subagents",
+    "npm:@hypabolic/pi-hypa",
+    "npm:pi-web-access"
+  ],
+  "theme": "catppuccin-mocha"
 }
