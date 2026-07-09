@@ -186,7 +186,6 @@ $env.config.explore = {
     selected_cell: { bg: $theme.blue fg: $theme.base },
 }
 
-alias ls = eza -l --icons --git-ignore
 
 alias n = nvim
 
