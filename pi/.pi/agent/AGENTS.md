@@ -54,25 +54,9 @@
 - Prefer `rg` over `grep`, `fd` over `find`
 - Use `github-issue-spec` skill for GitHub issues.
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
-- When running `npx skills` or `bunx skills`, always use `--agent opencode` to scope skills to opencode only.
+- When running `npx skills` or `bunx skills`, always use `--agent pi` to scope skills to pi only.
 
-## Search
-
-- Use `curl -s -L -A "<browser UA>" -H "Accept: text/html" -H "Accept-Language: en-US,en;q=0.5" -d "q=<query>" "https://html.duckduckgo.com/html/"` for web search.
-  - **POST** method is required (DDG blocks GET/curl without proper headers).
-  - Parse results with `xmllint --html --xpath '//a[@class="result__a"]'` for titles/URLs, `xmllint --html --xpath '//a[@class="result__snippet"]'` for snippets.
-- For full page content from result URLs: `pandoc -f html -t markdown "<url>"` (direct) or `curl -s -L -A "<UA>" "<url>" | pandoc -f html -t plain` (cleaner for JS-heavy sites).
-- Prefer this over Firecrawl search for simple web lookups.
-
-## Caveman
-
-Terse like caveman. Technical substance exact. Only fluff die.
-Drop: articles, filler (just/really/basically), pleasantries, hedging.
-Fragments OK. Short synonyms. Code unchanged.
-Pattern: [thing] [action] [reason]. [next step].
-ACTIVE EVERY RESPONSE. No revert after many turns. No filler drift.
-Code/commits/PRs: normal. Off: "stop caveman" / "normal mode".
-
-## Blog Output
+## Your Output
 
 - Do not use em-dashes or en-dashes often.
+- When reporting information to me, be extremely concise and sacrifice grammar in favor of brevity.
