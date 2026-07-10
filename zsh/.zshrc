@@ -142,6 +142,8 @@ alias zj="zellij"
 # For cargo binaries
 export PATH="$PATH:$HOME/.cargo/bin"
 
+[[ -d "$HOME/.rustowl" ]] && export PATH="$PATH:$HOME/.rustowl"
+
 # Add flutter path
 [[ -d "$HOME/develop/flutter/bin" ]] && export PATH="$HOME/develop/flutter/bin:$PATH"
 
