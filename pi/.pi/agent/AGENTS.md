@@ -32,6 +32,7 @@
 - JavaScript/TypeScript: prefer `bun` and `bunx`
 - Python: prefer `uv`
 - Prefer `rg` over `grep`, `fd` over `find`
+  - **Regex gotcha:** `rg` uses extended regex by default: `|` = alternation, `\|` = literal pipe. `grep` uses basic regex (BRE): `\|` = alternation, `|` = literal pipe.
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
 
 ## Your Output
