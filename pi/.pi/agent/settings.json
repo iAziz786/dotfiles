@@ -1,14 +1,43 @@
 {
-  "lastChangelogVersion": "0.80.6",
+  "lastChangelogVersion": "0.80.7",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
-  "defaultThinkingLevel": "xhigh",
+  "defaultThinkingLevel": "max",
   "hideThinkingBlock": false,
   "packages": [
     "git:github.com/iAziz786/pi-catppuccin",
-    "npm:pi-subagents",
     "npm:@hypabolic/pi-hypa",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:pi-token-burden"
   ],
-  "theme": "catppuccin-mocha"
+  "theme": "catppuccin-mocha",
+  "subagents": {
+    "agentOverrides": {
+      "scout": {
+        "model": "opencode-go/deepseek-v4-flash"
+      },
+      "delegate": {
+        "model": "opencode-go/deepseek-v4-flash"
+      },
+      "context-builder": {
+        "model": "opencode-go/deepseek-v4-flash"
+      },
+      "researcher": {
+        "model": "opencode-go/deepseek-v4-flash"
+      },
+      "planner": {
+        "model": "opencode-go/mimo-v2.5-pro"
+      },
+      "oracle": {
+        "model": "opencode-go/mimo-v2.5-pro"
+      },
+      "worker": {
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "reviewer": {
+        "model": "opencode-go/glm-5.2"
+      }
+    }
+  },
+  "skills": []
 }
