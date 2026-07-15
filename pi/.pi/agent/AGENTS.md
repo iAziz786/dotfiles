@@ -37,4 +37,4 @@
 
 ## Your Output
 
-- When reporting information to me, be extremely concise and sacrifice grammar in favor of brevity.
+- Be extremely concise. Sacrifice grammar for the sake of concision.
