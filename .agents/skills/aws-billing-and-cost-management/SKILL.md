@@ -14,6 +14,7 @@ metadata:
   task: [analyze-cost, optimize, budget, right-size, pricing-lookup, audit]
   persona: [developer, finops-practitioner, cloud-engineer]
   workload: [cost-management]
+disable-model-invocation: true
 ---
 
 # Billing and Cost Management

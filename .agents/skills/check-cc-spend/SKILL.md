@@ -6,6 +6,7 @@ compatibility: Designed for OpenCode and Claude Code
 metadata:
   author: Aziz
   version: "1.0"
+disable-model-invocation: true
 ---
 
 # Check Credit Card Spend
