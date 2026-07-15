@@ -1,14 +1,10 @@
 ---
 name: hcloud-cli
 description: >-
-  Use the Hetzner Cloud CLI (hcloud) to manage cloud resources from the
-  terminal. Use when the user wants to create, list, describe, update, or
-  delete servers, firewalls, networks, volumes, floating IPs, SSH keys,
-  DNS zones, load balancers, images, placement groups, primary IPs,
-  storage boxes, or certificates on Hetzner Cloud. Also use when
-  installing/setting up hcloud, configuring contexts and authentication,
-  querying datacenters/locations/server-types, using output options
-  (JSON/YAML/template/table), or scripting cloud infrastructure.
+  Manage Hetzner Cloud resources via hcloud CLI — servers, networking,
+  DNS, SSH keys, images, load balancers, volumes, IPs, certificates.
+  Use for provisioning, auth, output formatting (JSON/YAML/template),
+  and scripting.
 license: MIT
 metadata:
   author: iAziz786
