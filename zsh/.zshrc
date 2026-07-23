@@ -263,3 +263,6 @@ export PATH="/Users/aziz/.local/bin:$PATH"
 export PATH="$HOME/.grok/bin:$PATH"
 fpath=(~/.grok/completions/zsh $fpath)
 # <<< grok installer <<<
+
+# I make mistakes sometimes typing pi as `pio`
+command -v pi >/dev/null 2>&1 && alias pio="pi"
