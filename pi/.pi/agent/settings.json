@@ -1,13 +1,11 @@
 {
-  "lastChangelogVersion": "0.81.1",
+  "lastChangelogVersion": "0.84.0",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "max",
   "hideThinkingBlock": false,
   "packages": [
     "git:github.com/iAziz786/pi-catppuccin",
-    "npm:@hypabolic/pi-hypa",
-    "npm:pi-web-access",
     "npm:pi-token-burden"
   ],
   "theme": "catppuccin-mocha",

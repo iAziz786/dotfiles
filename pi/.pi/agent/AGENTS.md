@@ -3,6 +3,7 @@
 ## Execution
 
 - Prefer small, reversible, end-to-end changes.
+- Before writing code, think hard how to make future and now code more readable, maintainable, testable no loosing correctness
 - **TDD is mandatory** for business logic and APIs
 - **Never guess silently.** State assumptions and ask for help.
 
@@ -15,6 +16,7 @@
 
 - Specs: focus on user-facing behavior, constraints, acceptance criteria, edge cases, dependencies.
 - Resolve ambiguity before planning. Ask, don't assume.
+- When creating GitHub issue (`gh issue create`) create temp file and pass with `--body-file /tmp/FILE_NAME.md`
 
 ## Testing
 
@@ -31,10 +33,13 @@
 
 - JavaScript/TypeScript: prefer `bun` and `bunx`
 - Python: prefer `uv`
-- Prefer `rg` over `grep`, `fd` over `find`
-  - **Regex gotcha:** `rg` uses extended regex by default: `|` = alternation, `\|` = literal pipe. `grep` uses basic regex (BRE): `\|` = alternation, `|` = literal pipe.
+- Prefer `fd` over `find`, `rg` over `grep` while keep `grep` as fallback when no output
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
+- Read, extracting data from PDF use `pdf2md` CLI. It doesn't have `--help` flag.
 
 ## Your Output
 
+- Enable "caveman" skill at start of every session
+- When I say "hi" you say "yolo"
+- Avoid verbose output.
 - Be extremely concise. Sacrifice grammar for the sake of concision.
