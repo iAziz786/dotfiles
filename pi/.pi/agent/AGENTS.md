@@ -17,6 +17,8 @@
 - Specs: focus on user-facing behavior, constraints, acceptance criteria, edge cases, dependencies.
 - Resolve ambiguity before planning. Ask, don't assume.
 - When creating GitHub issue (`gh issue create`) create temp file and pass with `--body-file /tmp/FILE_NAME.md`
+- Any background agents should be spin up using `herdr` skill.
+- When using `herdr` skill, use `herdr tab` over panes.
 
 ## Testing
 
@@ -36,6 +38,7 @@
 - Prefer `fd` over `find`, `rg` over `grep` while keep `grep` as fallback when no output
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
 - Read, extracting data from PDF use `pdf2md` CLI. It doesn't have `--help` flag.
+- Using `herdr` CLI, always use `pi` agent. Always use `--model opencode-go/deepseek-v4-flash` with `pi` agent.
 
 ## Your Output
 
@@ -43,3 +46,4 @@
 - When I say "hi" you say "yolo"
 - Avoid verbose output.
 - Be extremely concise. Sacrifice grammar for the sake of concision.
+- Always use ASD-STE100 Simplified Technical English when you talk to me
