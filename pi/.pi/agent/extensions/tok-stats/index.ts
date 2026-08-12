@@ -5,8 +5,10 @@
  * and inserts an exact t/s segment into the stats line, right after the R cache
  * segment: `↑88k ↓43k R5.2M 78 t/s CH99.9% $0.069 7.3%/1.0M (auto)`.
  *
- * Shows exact rate from provider usage after each response; `0 t/s` when no
- * measurable stream yet. No live estimate during streaming.
+ * Shows exact decode rate after each response (output tokens / time from first
+ * stream delta to message_end; falls back to message_start when no deltas).
+ * Any positive span counts — no min-span floor. `0 t/s` when unmeasurable.
+ * No live estimate during streaming.
  *
  * Approximations vs built-in footer (fields not exposed to extensions):
  *  - "(auto)" auto-compact indicator rendered statically
@@ -17,8 +19,7 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { truncateToWidth, visibleWidth, type TUI } from "@earendil-works/pi-tui";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { AssistantMessage, Usage } from "@earendil-works/pi-ai";
-
-const MIN_RATE_SPAN_MS = 100;
+import { computeTokenRate } from "./rate.ts";
 
 interface UsageTotals {
 	input: number;
@@ -29,8 +30,12 @@ interface UsageTotals {
 }
 
 interface Stream {
+	startTs: number;
 	firstDeltaTs: number | undefined;
-	lastDeltaTs: number | undefined;
+}
+
+function nowMs(): number {
+	return performance.now();
 }
 
 function createUsageTotals(): UsageTotals {
@@ -223,8 +228,15 @@ export default function (pi: ExtensionAPI) {
 	// lands in session entries (see pi interactive-mode), so rendering on the
 	// same frame would show fresh t/s with stale ↑↓ counts. A short delay makes
 	// both land on one frame, matching built-in footer cadence.
+	function clearRenderTimer(): void {
+		if (renderTimer !== undefined) {
+			clearTimeout(renderTimer);
+			renderTimer = undefined;
+		}
+	}
+
 	function scheduleRender(): void {
-		if (renderTimer !== undefined) clearTimeout(renderTimer);
+		clearRenderTimer();
 		renderTimer = setTimeout(() => {
 			renderTimer = undefined;
 			requestRender();
@@ -233,14 +245,24 @@ export default function (pi: ExtensionAPI) {
 
 	pi.on("session_start", (event, ctx) => {
 		latestCtx = ctx;
+		lastRate = undefined;
+		current = undefined;
 		ensureFooter(ctx);
+	});
+
+	pi.on("session_shutdown", () => {
+		clearRenderTimer();
+		current = undefined;
+		lastRate = undefined;
+		tui = undefined;
+		latestCtx = undefined;
 	});
 
 	pi.on("message_start", (event, ctx) => {
 		latestCtx = ctx;
 		ensureFooter(ctx);
 		if (event.message.role !== "assistant") return;
-		current = { firstDeltaTs: undefined, lastDeltaTs: undefined };
+		current = { startTs: nowMs(), firstDeltaTs: undefined };
 	});
 
 	pi.on("message_update", (event, ctx) => {
@@ -250,9 +272,7 @@ export default function (pi: ExtensionAPI) {
 
 		const ev = event.assistantMessageEvent;
 		if (ev.type !== "text_delta" && ev.type !== "thinking_delta" && ev.type !== "toolcall_delta") return;
-		const now = Date.now();
-		if (current.firstDeltaTs === undefined) current.firstDeltaTs = now;
-		current.lastDeltaTs = now;
+		if (current.firstDeltaTs === undefined) current.firstDeltaTs = nowMs();
 	});
 
 	pi.on("message_end", (event, ctx) => {
@@ -265,11 +285,11 @@ export default function (pi: ExtensionAPI) {
 			scheduleRender();
 			return;
 		}
-		const { firstDeltaTs, lastDeltaTs } = current;
+		const endTs = nowMs();
+		const { startTs, firstDeltaTs } = current;
 		current = undefined;
-		const deltaSpan =
-			firstDeltaTs !== undefined && lastDeltaTs !== undefined ? lastDeltaTs - firstDeltaTs : undefined;
-		lastRate = deltaSpan && deltaSpan >= MIN_RATE_SPAN_MS ? usage.output / (deltaSpan / 1000) : undefined;
+		// Decode window: first stream delta → end. No deltas → full wall span from start.
+		lastRate = computeTokenRate(usage.output, startTs, endTs, firstDeltaTs);
 		scheduleRender();
 	});
 }

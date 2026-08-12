@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.84.1",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
-  "defaultThinkingLevel": "max",
+  "defaultProvider": "xai",
+  "defaultModel": "grok-4.5",
+  "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "packages": [
     "git:github.com/iAziz786/pi-catppuccin",
