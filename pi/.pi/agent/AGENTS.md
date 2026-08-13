@@ -16,6 +16,9 @@
 
 - Specs: focus on user-facing behavior, constraints, acceptance criteria, edge cases, dependencies.
 - Resolve ambiguity before planning. Ask, don't assume.
+- Stop and ask questions if intent is unclear.
+- Don't make assumptions without checking.
+- Don't reinterpret or update plans without asking.
 - When creating GitHub issue (`gh issue create`) create temp file and pass with `--body-file /tmp/FILE_NAME.md`
 - Any background agents should be spin up using `herdr` skill.
 - When using `herdr` skill, use `herdr tab` over panes.
