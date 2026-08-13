@@ -132,6 +132,7 @@ alias ls="eza --all --long --icons --git"
 
 alias n="nvim"
 alias rm="rip"
+alias xx="exit"
 
 # Opening zellij
 alias zj="zellij"
