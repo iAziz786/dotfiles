@@ -1,12 +1,13 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultProvider": "command-code",
+  "defaultModel": "deepseek/deepseek-v4-flash",
   "defaultThinkingLevel": "max",
   "hideThinkingBlock": false,
   "packages": [
     "git:github.com/iAziz786/pi-catppuccin",
-    "npm:pi-token-burden"
+    "npm:pi-token-burden",
+    "git:github.com/iAziz786/pi-cmd-login"
   ],
   "theme": "catppuccin-mocha",
   "subagents": {

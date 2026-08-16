@@ -41,7 +41,7 @@
 - Prefer `fd` over `find`, `rg` over `grep` while keep `grep` as fallback when no output
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
 - Read, extracting data from PDF use `pdf2md` CLI. It doesn't have `--help` flag.
-- Using `herdr` CLI, always use `pi` agent. Always use `--model opencode-go/deepseek-v4-flash --thinking max` with `pi` agent.
+- Using `herdr` CLI, always use `pi` agent. Always use `--model command-code/deepseek-v4-flash --thinking max` with `pi` agent.
 
 ## Your Output
 
