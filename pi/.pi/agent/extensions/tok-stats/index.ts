@@ -19,6 +19,7 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { truncateToWidth, visibleWidth, type TUI } from "@earendil-works/pi-tui";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { AssistantMessage, Usage } from "@earendil-works/pi-ai";
+import { cacheHitThemeColor, lastAssistantWasCacheMiss } from "./cache-hit.ts";
 import { computeTokenRate } from "./rate.ts";
 
 interface UsageTotals {
@@ -129,7 +130,7 @@ export default function (pi: ExtensionAPI) {
 					const sessionName = ctx2.sessionManager.getSessionName();
 					if (sessionName) pwd = `${pwd} • ${sessionName}`;
 
-					// Stats line. Dim each segment individually; only the t/s segment is colored,
+					// Stats line. Dim each segment individually; t/s and CH are colored separately,
 					// because an embedded color reset (\x1b[39m) would wipe the dim for everything after it.
 					const dim = (s: string): string => theme.fg("dim", s);
 					const statsParts: string[] = [];
@@ -142,7 +143,12 @@ export default function (pi: ExtensionAPI) {
 
 					if (usageTotals.cacheWrite) statsParts.push(dim(`W${formatTokens(usageTotals.cacheWrite)}`));
 					if ((usageTotals.cacheRead > 0 || usageTotals.cacheWrite > 0) && latestCacheHitRate !== undefined) {
-						statsParts.push(dim(`CH${latestCacheHitRate.toFixed(1)}%`));
+						statsParts.push(
+							theme.fg(
+								cacheHitThemeColor(lastAssistantWasCacheMiss(entries)),
+								`CH${latestCacheHitRate.toFixed(1)}%`,
+							),
+						);
 					}
 					const usingSubscription = ctx2.model?.provider === "kimi-coding";
 					if (usageTotals.cost || usingSubscription) {
