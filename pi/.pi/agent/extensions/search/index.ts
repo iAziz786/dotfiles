@@ -34,5 +34,6 @@ const searchTool = defineTool({
 });
 
 export default function (pi: ExtensionAPI) {
-	pi.registerTool(searchTool);
+	// NOTE: search tool disabled for now. Re-enable by uncommenting.
+	// pi.registerTool(searchTool);
 }
