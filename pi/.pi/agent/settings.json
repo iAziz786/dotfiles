@@ -8,6 +8,9 @@
     "git:github.com/iAziz786/pi-catppuccin",
     "npm:pi-token-burden",
     "git:github.com/iAziz786/pi-cmd-login"
+    "git:github.com/iAziz786/pi-cmd-login",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-web-access"
   ],
   "theme": "catppuccin-mocha",
   "subagents": {
@@ -42,4 +45,6 @@
   "compaction": {
     "enabled": false
   }
+  },
+  "showCacheMissNotices": true
 }

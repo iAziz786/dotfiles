@@ -19,7 +19,7 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { truncateToWidth, visibleWidth, type TUI } from "@earendil-works/pi-tui";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { AssistantMessage, Usage } from "@earendil-works/pi-ai";
-import { cacheHitThemeColor, lastAssistantWasCacheMiss } from "./cache-hit.ts";
+import { cacheHitThemeColor, turnHadCacheMiss } from "./cache-hit.ts";
 import { computeTokenRate } from "./rate.ts";
 
 interface UsageTotals {
@@ -145,7 +145,7 @@ export default function (pi: ExtensionAPI) {
 					if ((usageTotals.cacheRead > 0 || usageTotals.cacheWrite > 0) && latestCacheHitRate !== undefined) {
 						statsParts.push(
 							theme.fg(
-								cacheHitThemeColor(lastAssistantWasCacheMiss(entries)),
+								cacheHitThemeColor(turnHadCacheMiss(entries)),
 								`CH${latestCacheHitRate.toFixed(1)}%`,
 							),
 						);

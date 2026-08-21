@@ -68,6 +68,38 @@ export function lastAssistantWasCacheMiss(entries: readonly CacheScanEntry[]): b
 	return lastWasMiss;
 }
 
+/**
+ * True when any assistant call in the current turn (entries after the most
+ * recent user message) was a cache miss. A turn is an agent loop: several
+ * assistant calls, and an early call can miss while the final call hits —
+ * the footer must stay red for the whole turn in that case.
+ */
+export function turnHadCacheMiss(entries: readonly CacheScanEntry[]): boolean {
+	let lastUserIndex = -1;
+	for (let i = entries.length - 1; i >= 0; i--) {
+		const entry = entries[i];
+		if (entry.type === "message" && entry.message?.role === "user") {
+			lastUserIndex = i;
+			break;
+		}
+	}
+
+	let prev: PreviousRequest | undefined;
+	for (let i = 0; i < entries.length; i++) {
+		const entry = entries[i];
+		if (entry.type === "compaction" || entry.type === "branch_summary") {
+			// Context legitimately changed; next turn is new content, not re-billed.
+			prev = undefined;
+			continue;
+		}
+		if (entry.type !== "message" || entry.message?.role !== "assistant" || !entry.message.usage) continue;
+		const miss = detectMiss(prev, entry.message.usage);
+		if (miss && i > lastUserIndex) return true;
+		prev = asPreviousRequest(entry.message.usage, prev?.reportedCache ?? false) ?? prev;
+	}
+	return false;
+}
+
 export type CacheHitColor = "success" | "error";
 
 export function cacheHitThemeColor(isMiss: boolean): CacheHitColor {

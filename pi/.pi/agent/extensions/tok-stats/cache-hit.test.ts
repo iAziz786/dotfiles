@@ -1,5 +1,10 @@
 import { describe, expect, test } from "bun:test";
-import { cacheHitThemeColor, lastAssistantWasCacheMiss, type CacheScanEntry } from "./cache-hit.ts";
+import {
+	cacheHitThemeColor,
+	lastAssistantWasCacheMiss,
+	turnHadCacheMiss,
+	type CacheScanEntry,
+} from "./cache-hit.ts";
 
 function usage(input: number, cacheRead: number, cacheWrite = 0) {
 	return { input, cacheRead, cacheWrite };
@@ -105,6 +110,31 @@ describe("lastAssistantWasCacheMiss", () => {
 				{ type: "message", message: { role: "assistant", usage: usage(5_000, 5_000) } },
 			]),
 		).toBe(true);
+	});
+
+	describe("turnHadCacheMiss", () => {
+		test("miss on earlier assistant call in current turn is a miss", () => {
+			// Turn: user msg → assistant MISS → toolResult → assistant HIT
+			const entries: CacheScanEntry[] = [
+				assistant(0, 0, 10_000),
+				{ type: "message", message: { role: "user" } },
+				{ type: "message", message: { role: "assistant", usage: usage(10_000, 0) } }, // miss
+				{ type: "message", message: { role: "toolResult" } },
+				{ type: "message", message: { role: "assistant", usage: usage(200, 12_000) } }, // hit
+			];
+			expect(turnHadCacheMiss(entries)).toBe(true);
+		});
+
+		test("miss in an older turn does not color current turn", () => {
+			const entries: CacheScanEntry[] = [
+				assistant(0, 0, 10_000),
+				{ type: "message", message: { role: "user" } },
+				{ type: "message", message: { role: "assistant", usage: usage(5_000, 5_000) } }, // miss, old turn
+				{ type: "message", message: { role: "user" } },
+				{ type: "message", message: { role: "assistant", usage: usage(200, 12_000) } }, // hit, current
+			];
+			expect(turnHadCacheMiss(entries)).toBe(false);
+		});
 	});
 });
 
