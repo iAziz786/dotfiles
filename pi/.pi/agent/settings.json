@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "command-code",
-  "defaultModel": "deepseek/deepseek-v4-flash",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "ox-alpha-free",
   "defaultThinkingLevel": "max",
   "hideThinkingBlock": false,
   "packages": [
@@ -12,34 +12,6 @@
     "npm:pi-web-access"
   ],
   "theme": "catppuccin-mocha",
-  "subagents": {
-    "agentOverrides": {
-      "scout": {
-        "model": "opencode-go/deepseek-v4-flash"
-      },
-      "delegate": {
-        "model": "opencode-go/deepseek-v4-flash"
-      },
-      "context-builder": {
-        "model": "opencode-go/deepseek-v4-flash"
-      },
-      "researcher": {
-        "model": "opencode-go/deepseek-v4-flash"
-      },
-      "planner": {
-        "model": "opencode-go/mimo-v2.5-pro"
-      },
-      "oracle": {
-        "model": "opencode-go/mimo-v2.5-pro"
-      },
-      "worker": {
-        "model": "opencode-go/deepseek-v4-pro"
-      },
-      "reviewer": {
-        "model": "opencode-go/glm-5.2"
-      }
-    }
-  },
   "skills": [],
   "compaction": {
     "enabled": false
