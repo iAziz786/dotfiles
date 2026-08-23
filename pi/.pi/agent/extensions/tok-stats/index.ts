@@ -7,7 +7,9 @@
  *
  * Shows exact decode rate after each response (output tokens / time from first
  * stream delta to message_end; falls back to message_start when no deltas).
- * Any positive span counts — no min-span floor. `0 t/s` when unmeasurable.
+ * Measurement is rejected (shows `0 t/s`) when delivery was not observable as
+ * a stream: too few delta events or an implausibly short window — proxies that
+ * buffer the whole reply and flush it in one burst produce thousands of t/s.
  * No live estimate during streaming.
  *
  * Approximations vs built-in footer (fields not exposed to extensions):
@@ -19,7 +21,7 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { truncateToWidth, visibleWidth, type TUI } from "@earendil-works/pi-tui";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { AssistantMessage, Usage } from "@earendil-works/pi-ai";
-import { cacheHitThemeColor, turnHadCacheMiss } from "./cache-hit.ts";
+import { cacheHitThemeColor, lastAssistantWasCacheMiss } from "./cache-hit.ts";
 import { computeTokenRate } from "./rate.ts";
 
 interface UsageTotals {
@@ -33,6 +35,7 @@ interface UsageTotals {
 interface Stream {
 	startTs: number;
 	firstDeltaTs: number | undefined;
+	chunkCount: number;
 }
 
 function nowMs(): number {
@@ -145,7 +148,7 @@ export default function (pi: ExtensionAPI) {
 					if ((usageTotals.cacheRead > 0 || usageTotals.cacheWrite > 0) && latestCacheHitRate !== undefined) {
 						statsParts.push(
 							theme.fg(
-								cacheHitThemeColor(turnHadCacheMiss(entries)),
+								cacheHitThemeColor(lastAssistantWasCacheMiss(entries)),
 								`CH${latestCacheHitRate.toFixed(1)}%`,
 							),
 						);
@@ -268,7 +271,7 @@ export default function (pi: ExtensionAPI) {
 		latestCtx = ctx;
 		ensureFooter(ctx);
 		if (event.message.role !== "assistant") return;
-		current = { startTs: nowMs(), firstDeltaTs: undefined };
+		current = { startTs: nowMs(), firstDeltaTs: undefined, chunkCount: 0 };
 	});
 
 	pi.on("message_update", (event, ctx) => {
@@ -279,23 +282,32 @@ export default function (pi: ExtensionAPI) {
 		const ev = event.assistantMessageEvent;
 		if (ev.type !== "text_delta" && ev.type !== "thinking_delta" && ev.type !== "toolcall_delta") return;
 		if (current.firstDeltaTs === undefined) current.firstDeltaTs = nowMs();
+		current.chunkCount++;
 	});
 
 	pi.on("message_end", (event, ctx) => {
 		latestCtx = ctx;
 		if (event.message.role !== "assistant" || !current) return;
-		const usage = (event.message as AssistantMessage).usage;
+		const message = event.message as AssistantMessage;
+		const usage = message.usage;
+		const endTs = nowMs();
+		const { startTs, firstDeltaTs, chunkCount } = current;
+		current = undefined;
+		// Error/abort messages have partial or synthetic usage; skip without
+		// clearing the last measured rate — 0 would read as "this model is slow".
+		if (message.stopReason === "error" || message.stopReason === "aborted") {
+			scheduleRender();
+			return;
+		}
 		if (!usage) {
-			current = undefined;
 			lastRate = undefined;
 			scheduleRender();
 			return;
 		}
-		const endTs = nowMs();
-		const { startTs, firstDeltaTs } = current;
-		current = undefined;
-		// Decode window: first stream delta → end. No deltas → full wall span from start.
-		lastRate = computeTokenRate(usage.output, startTs, endTs, firstDeltaTs);
+		// Decode window: first stream delta → end. Unmeasurable windows keep
+		// the previous rate on screen (post-tool replies are often too short
+		// to measure; resetting to 0 reads as throughput collapse).
+		lastRate = computeTokenRate(usage.output, { startTs, endTs, firstDeltaTs, chunkCount }) ?? lastRate;
 		scheduleRender();
 	});
 }

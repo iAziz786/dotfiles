@@ -1,51 +1,70 @@
 import { describe, expect, test } from "bun:test";
-import { computeTokenRate } from "./rate.ts";
+import {
+	MAX_PLAUSIBLE_RATE,
+	MIN_RATE_CHUNKS,
+	MIN_RATE_SPAN_MS,
+	computeTokenRate,
+	type RateWindow,
+} from "./rate.ts";
+
+// Healthy stream: first delta 500ms after start, end 3s, many chunks.
+const healthy: RateWindow = { startTs: 0, endTs: 3000, firstDeltaTs: 500, chunkCount: 120 };
 
 describe("computeTokenRate", () => {
-	test("output tokens over decode span", () => {
-		// 200 tokens in 2s → 100 t/s
-		expect(computeTokenRate(200, 1000, 3000)).toBe(100);
+	test("output tokens over decode span (first delta → end)", () => {
+		// 200 tokens over 2.5s → 80 t/s
+		expect(computeTokenRate(200, healthy)).toBe(80);
 	});
 
-	test("uses first delta as rate start when present", () => {
-		// start=500, firstDelta=1000, end=3000 → span 2s → 100 t/s (not 2.5s from start)
-		expect(computeTokenRate(200, 500, 3000, 1000)).toBe(100);
+	test("message start used as rate start when no delta timestamp", () => {
+		// 200 tokens over 3s from start → ~66.67 t/s
+		expect(computeTokenRate(200, { startTs: 0, endTs: 3000, chunkCount: 120 })).toBeCloseTo(66.67, 1);
 	});
 
-	test("falls back to message start when no deltas", () => {
-		// no firstDelta → wall span start→end
-		expect(computeTokenRate(200, 1000, 3000, undefined)).toBe(100);
+	test("no delta chunks at all → unmeasurable (non-streamed reply)", () => {
+		expect(computeTokenRate(200, { startTs: 0, endTs: 3000, chunkCount: 0 })).toBeUndefined();
 	});
 
-	test("includes time after last delta (end - first, not last - first)", () => {
-		// Old bug: lastDelta=1500, first=1000 → span 0.5s → 400 t/s inflated.
-		// Correct: end=3000, first=1000 → span 2s → 100 t/s.
-		expect(computeTokenRate(200, 0, 3000, 1000)).toBe(100);
+	test("few-but-real chunks (4) still measure — short post-tool replies", () => {
+		// 60 tokens over 0.9s → ~67 t/s
+		expect(computeTokenRate(60, { startTs: 0, endTs: 1000, firstDeltaTs: 100, chunkCount: 4 })).toBeCloseTo(66.7, 1);
 	});
 
-	test("single-chunk stream still measurable via end timestamp", () => {
-		// One delta at t=1000, message_end at t=2500, 150 tokens.
-		expect(computeTokenRate(150, 0, 2500, 1000)).toBe(100);
+	test("buffered burst: few chunks over tiny window → unmeasurable", () => {
+		// Proxy buffered the whole reply, then flushed: 3117 tokens, all
+		// chunks 100ms before end. Observed span says ~31k t/s — impossible.
+		expect(
+			computeTokenRate(3117, { startTs: 0, endTs: 1800, firstDeltaTs: 1700, chunkCount: 3 }),
+		).toBeUndefined();
 	});
 
-	test("short spans still yield a rate when span > 0", () => {
-		// 50 tokens in 50ms → 1000 t/s (old min-span floor would drop this)
-		expect(computeTokenRate(50, 1000, 1050, 1000)).toBe(1000);
+	test("rate above physical ceiling → unmeasurable", () => {
+		// The observed bug: 1200 tokens in 0.7s ≈ 1714 t/s while chunks were
+		// plentiful — only possible if delivery was bursty, so reject.
+		expect(computeTokenRate(1200, { startTs: 0, endTs: 700, firstDeltaTs: 0, chunkCount: 50 })).toBeUndefined();
 	});
 
-	test("undefined when span is zero", () => {
-		expect(computeTokenRate(50, 1000, 1000, 1000)).toBeUndefined();
+	test("span below floor → unmeasurable even with many chunks", () => {
+		expect(computeTokenRate(50, { startTs: 0, endTs: MIN_RATE_SPAN_MS - 1, firstDeltaTs: 0, chunkCount: 50 })).toBeUndefined();
 	});
 
-	test("undefined when span is negative", () => {
-		expect(computeTokenRate(50, 1000, 900, 1000)).toBeUndefined();
+	test("boundary: exactly MIN_RATE_CHUNKS and MIN_RATE_SPAN_MS still measure", () => {
+		// 400 tokens over 1s = 400 t/s, at ceiling, not above it.
+		expect(
+			computeTokenRate(MAX_PLAUSIBLE_RATE, {
+				startTs: 0,
+				endTs: 1000,
+				firstDeltaTs: 0,
+				chunkCount: MIN_RATE_CHUNKS,
+			}),
+		).toBe(MAX_PLAUSIBLE_RATE);
 	});
 
-	test("undefined when no output tokens", () => {
-		expect(computeTokenRate(0, 1000, 3000)).toBeUndefined();
+	test("zero output → undefined", () => {
+		expect(computeTokenRate(0, healthy)).toBeUndefined();
 	});
 
-	test("undefined when negative output", () => {
-		expect(computeTokenRate(-1, 1000, 3000)).toBeUndefined();
+	test("negative output → undefined", () => {
+		expect(computeTokenRate(-1, healthy)).toBeUndefined();
 	});
 });

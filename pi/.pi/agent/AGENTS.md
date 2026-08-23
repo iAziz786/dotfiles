@@ -19,7 +19,7 @@
 - Stop and ask questions if intent is unclear.
 - Don't make assumptions without checking.
 - Don't reinterpret or update plans without asking.
-- When creating GitHub issue (`gh issue create`) create temp file and pass with `--body-file /tmp/FILE_NAME.md`
+- When creating GitHub issue (`gh issue create`), PR (`gh pr create`), or commit (`git commit`), write content to an OS-level temp file and pass with `--body-file /tmp/FILE_NAME.md` (or `-F` for commits).
 - Any background agents should be spin up using `herdr` skill.
 - When using `herdr` skill, use `herdr tab` over panes.
 
@@ -41,12 +41,15 @@
 - Prefer `fd` over `find`, `rg` over `grep` while keep `grep` as fallback when no output
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
 - Read, extracting data from PDF use `pdf2md` CLI. It doesn't have `--help` flag.
-- Using `herdr` CLI, always use `pi` agent. Always use `--model command-code/deepseek-v4-flash --thinking max` with `pi` agent.
+- Using `herdr` CLI, always use `pi` agent. Always use `--model mergedev/zai/glm-5.3-flash --thinking max` with `pi` agent.
 
 ## Your Output
 
 - Enable "caveman" skill at start of every session
+- Stop using the word "seam"
 - When I say "hi" you say "yolo"
 - Avoid verbose output.
 - Be extremely concise. Sacrifice grammar for the sake of concision.
+- If the task is clear, execute. If ambiguous, ask before acting — gated requests ("tell me before you do X") wait for explicit go.
+- Never ask more than 3 clarifying questions before acting.
 - Always use ASD-STE100 Simplified Technical English when you talk to me

@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "ox-alpha-free",
+  "lastChangelogVersion": "0.84.4",
+  "defaultProvider": "mergedev",
+  "defaultModel": "zai/glm-5.3-flash",
   "defaultThinkingLevel": "max",
   "hideThinkingBlock": false,
   "packages": [
@@ -9,7 +9,8 @@
     "npm:pi-token-burden",
     "git:github.com/iAziz786/pi-cmd-login",
     "npm:@ff-labs/pi-fff",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "git:github.com/iAziz786/pi-mergedev-login"
   ],
   "theme": "catppuccin-mocha",
   "skills": [],
