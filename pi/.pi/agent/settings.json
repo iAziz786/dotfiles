@@ -1,21 +1,23 @@
 {
-  "lastChangelogVersion": "0.84.4",
-  "defaultProvider": "mergedev",
-  "defaultModel": "zai/glm-5.3-flash",
-  "defaultThinkingLevel": "max",
+  "lastChangelogVersion": "0.85.1",
+  "defaultProvider": "opencode",
+  "defaultModel": "muse-spark-1.3-contributor-free",
+  "defaultThinkingLevel": "xhigh",
   "hideThinkingBlock": false,
   "packages": [
     "git:github.com/iAziz786/pi-catppuccin",
     "npm:pi-token-burden",
-    "git:github.com/iAziz786/pi-cmd-login",
     "npm:@ff-labs/pi-fff",
     "npm:pi-web-access",
-    "git:github.com/iAziz786/pi-mergedev-login"
+    "npm:@iaziz786/pi-merge-gateway-login",
+    "npm:@iaziz786/pi-cmd-login",
+    "npm:@iaziz786/pi-footer"
   ],
   "theme": "catppuccin-mocha",
   "skills": [],
   "compaction": {
     "enabled": false
   },
-  "showCacheMissNotices": true
+  "showCacheMissNotices": true,
+  "tuiMode": "fullscreen"
 }
