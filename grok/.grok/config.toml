@@ -1,0 +1,30 @@
+[models]
+default = "merge-gateway-glm"
+default_reasoning_effort = "xhigh"
+
+[model.merge-gateway-glm]
+model = "zai/glm-5.3-flash"
+base_url = "https://api-gateway.merge.dev/v1/openai"
+name = "GLM 5.3 Flash via Merge"
+api_backend = "chat_completions"
+env_key = "MERGE_GATEWAY_API_KEY"
+context_window = 1000000
+supports_reasoning_effort = true
+
+[marketplace]
+default_skills_installs_purged = true
+official_marketplace_auto_installed = true
+
+[[marketplace.sources]]
+name = "xAI Official"
+git = "https://github.com/xai-org/plugin-marketplace.git"
+
+[ui]
+max_thoughts_width = 120
+fork_secondary_model = "grok-4.6"
+yolo = false
+compact_mode = false
+permission_mode = "always-approve"
+
+[privacy]
+privacy_banner_acked = "2026-09-11T03:43:19Z"
