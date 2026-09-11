@@ -12,37 +12,40 @@
     }
   },
   "mcp": {
-    "aws-mcp": {
-      "type": "local",
-      "command": [
-        "uvx",
-        "mcp-proxy-for-aws@latest",
-        "https://aws-mcp.us-east-1.api.aws/mcp",
-        "--metadata",
-        "AWS_REGION=ap-south-1"
-      ],
-      "enabled": false
-    },
-    "slack": {
-      "type": "remote",
-      "url": "https://mcp.slack.com/mcp",
-      "oauth": {},
-      "enabled": false
-    },
-    "chrome-devtools": {
-      "type": "local",
-      "command": [
-        "bunx",
-        "-y",
-        "chrome-devtools-mcp@latest",
-        "--no-usage-statistics"
-      ],
-      "enabled": false
+    "servers": {
+      "aws-mcp": {
+        "type": "local",
+        "command": [
+          "uvx",
+          "mcp-proxy-for-aws@latest",
+          "https://aws-mcp.us-east-1.api.aws/mcp",
+          "--metadata",
+          "AWS_REGION=ap-south-1"
+        ],
+        "disabled": true
+      },
+      "slack": {
+        "type": "remote",
+        "url": "https://mcp.slack.com/mcp",
+        "oauth": {
+          "client_id": "{env:SLACK_MCP_CLIENT_ID}",
+          "client_secret": "{env:SLACK_MCP_CLIENT_SECRET}",
+          "callback_port": 19876,
+          "redirect_uri": "http://127.0.0.1:19876/callback"
+        }
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--no-usage-statistics"
+        ],
+        "disabled": true
+      }
     }
   },
-  "plugin": [
-    "oh-my-opencode-slim"
-  ],
   "agent": {
     "explore": {
       "disable": true
