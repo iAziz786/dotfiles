@@ -1,0 +1,28 @@
+modelRoles:
+  default: merge-gateway/zai/glm-5.3-flash:max
+symbolPreset: unicode
+composer:
+  shape: band
+  tokenRate: true
+theme:
+  dark: dark-catppuccin
+setupVersion: 2
+display:
+  showTokenUsage: false
+  cacheMissMarker: true
+statusLine:
+  preset: custom
+  transparent: true
+  contextLine: embedded
+  separator: none
+  leftSegments:
+    - model
+    - path
+  rightSegments:
+    - cache_hit
+    - cost
+    - context_pct
+    - status
+  showHookStatus: false
+dev:
+  autoqaConsent: granted
