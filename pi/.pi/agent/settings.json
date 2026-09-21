@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.86.0",
+  "lastChangelogVersion": "1.0.0",
   "defaultProvider": "opencode-go",
   "defaultModel": "muse-spark-1.3-contributor",
   "defaultThinkingLevel": "xhigh",
@@ -19,6 +19,6 @@
     "enabled": false
   },
   "showCacheMissNotices": true,
-  "tuiMode": "fullscreen"
+  "tuiMode": "fullscreen",
+  "cacheWarming": "idle"
 }
-

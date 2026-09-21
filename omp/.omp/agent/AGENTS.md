@@ -20,8 +20,6 @@
 - Don't make assumptions without checking.
 - Don't reinterpret or update plans without asking.
 - When creating GitHub issue (`gh issue create`), PR (`gh pr create`), or commit (`git commit`), write content to an OS-level temp file and pass with `--body-file /tmp/FILE_NAME.md` (or `-F` for commits).
-- Any background agents should be spin up using `herdr` skill.
-- When using `herdr` skill, use `herdr tab` over panes.
 
 ## Testing
 
@@ -42,7 +40,6 @@
 - Prefer `fd` over `find`, `rg` over `grep` while keep `grep` as fallback when no output
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
 - Read, extracting data from PDF use `pdf2md` CLI. It doesn't have `--help` flag.
-- Using `herdr` CLI, always use `pi` agent. Always use `--model mergedev/zai/glm-5.3-flash --thinking max` with `pi` agent.
 
 ## Your Output
 

@@ -1,5 +1,5 @@
 [models]
-default = "merge-gateway-glm"
+default = "go-spacebunny-free"
 default_reasoning_effort = "xhigh"
 
 [model.merge-gateway-glm]
@@ -10,6 +10,89 @@ api_backend = "chat_completions"
 env_key = "MERGE_GATEWAY_API_KEY"
 context_window = 1000000
 supports_reasoning_effort = true
+reasoning_effort = "max"
+
+[model.cmd-deepseek-v41]
+model = "deepseek/deepseek-v4.1-flash"
+base_url = "https://api.commandcode.ai/provider/v1"
+name = "DeepSeek V4.1 Flash via Cmd"
+api_backend = "chat_completions"
+env_key = "CMD_API_KEY"
+context_window = 1000000
+supports_reasoning_effort = true
+reasoning_effort = "max"
+
+[model.cmd-muse-spark]
+model = "meta/muse-spark-1.3-contributor"
+base_url = "https://api.commandcode.ai/provider/v1"
+name = "Muse Spark 1.3 Contributor via Cmd"
+api_backend = "chat_completions"
+env_key = "CMD_API_KEY"
+context_window = 1048576
+supports_reasoning_effort = true
+reasoning_effort = "xhigh"
+
+[model.go-deepseek-v41]
+model = "deepseek-v4.1-flash"
+base_url = "https://opencode.ai/zen/go/v1"
+name = "DeepSeek V4.1 Flash via Go"
+api_backend = "chat_completions"
+env_key = "OPENCODE_API_KEY"
+context_window = 1000000
+supports_reasoning_effort = true
+reasoning_effort = "max"
+
+[model.go-deepseek-v41.extra_headers]
+x-opencode-session = "c0e0b7c551944c07"
+
+[model.go-muse-spark]
+model = "muse-spark-1.3-contributor"
+base_url = "https://opencode.ai/zen/go/v1"
+name = "Muse Spark 1.3 Contributor via Go"
+api_backend = "responses"
+env_key = "OPENCODE_API_KEY"
+context_window = 1048576
+supports_reasoning_effort = true
+reasoning_effort = "xhigh"
+
+[model.go-muse-spark.extra_headers]
+x-opencode-session = "c0e0b7c551944c07"
+
+[model.go-glm-flash]
+model = "glm-5.3-flash"
+base_url = "https://opencode.ai/zen/go/v1"
+name = "GLM 5.3 Flash via Go"
+api_backend = "chat_completions"
+env_key = "OPENCODE_API_KEY"
+context_window = 1000000
+supports_reasoning_effort = true
+reasoning_effort = "max"
+
+[model.go-glm-flash.extra_headers]
+x-opencode-session = "c0e0b7c551944c07"
+
+[model.go-spacebunny-free]
+model = "space-bunny-free"
+base_url = "https://opencode.ai/zen/go/v1"
+name = "Space Bunny Free via Go"
+api_backend = "chat_completions"
+env_key = "OPENCODE_API_KEY"
+context_window = 1000000
+supports_reasoning_effort = true
+reasoning_effort = "xhigh"
+
+[model.go-spacebunny-free.extra_headers]
+x-opencode-session = "c0e0b7c551944c07"
+
+[model.zen-muse-spark-free]
+model = "muse-spark-1.3-contributor-free"
+base_url = "https://opencode.ai/zen/v1"
+name = "Muse Spark 1.3 Contributor Free via Zen"
+api_backend = "responses"
+env_key = "OPENCODE_API_KEY"
+context_window = 1048576
+supports_reasoning_effort = true
+reasoning_effort = "xhigh"
 
 [marketplace]
 default_skills_installs_purged = true
@@ -23,8 +106,14 @@ git = "https://github.com/xai-org/plugin-marketplace.git"
 max_thoughts_width = 120
 fork_secondary_model = "grok-4.6"
 yolo = false
-compact_mode = false
+compact_mode = true
 permission_mode = "always-approve"
 
 [privacy]
 privacy_banner_acked = "2026-09-11T03:43:19Z"
+
+[plugins]
+enabled = ["slack"]
+
+[cli]
+installer = "internal"

@@ -10,6 +10,7 @@ setupVersion: 2
 display:
   showTokenUsage: false
   cacheMissMarker: true
+  showTurnTime: false
 statusLine:
   preset: custom
   transparent: true
@@ -26,3 +27,7 @@ statusLine:
   showHookStatus: false
 dev:
   autoqaConsent: granted
+task:
+  agentModelOverrides:
+    reviewer: opencode-go/muse-spark-1.3-contributor
+    security-reviewer: merge-gateway/zai/glm-5.3-flash
