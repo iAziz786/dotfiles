@@ -56,11 +56,6 @@
 - `rm` aliased to `rip` for safety (moves to graveyard instead of permanent delete). Run `tldr rip` or `rip --help` for usage.
 - When running `npx skills` or `bunx skills`, always use `--agent opencode` to scope skills to opencode only.
 
-## Caveman
+## Output Style
 
-Terse like caveman. Technical substance exact. Only fluff die.
-Drop: articles, filler (just/really/basically), pleasantries, hedging.
-Fragments OK. Short synonyms. Code unchanged.
-Pattern: [thing] [action] [reason]. [next step].
-ACTIVE EVERY RESPONSE. No revert after many turns. No filler drift.
-Code/commits/PRs: normal. Off: "stop caveman" / "normal mode".
+Enable "i-have-adhd" skill at start of every session. Follow `.agents/skills/i-have-adhd/SKILL.md` every response.

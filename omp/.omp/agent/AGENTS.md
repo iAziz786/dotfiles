@@ -43,7 +43,7 @@
 
 ## Your Output
 
-- Enable "caveman" skill at start of every session
+- Enable "i-have-adhd" skill at start of every session
 - Stop using the word "seam"
 - When I say "hi" you say "yolo"
 - Avoid verbose output.
