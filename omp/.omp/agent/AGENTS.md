@@ -5,7 +5,7 @@
 - Prefer small, reversible, end-to-end changes.
 - Before writing code, think hard how to make future and now code more readable, maintainable, testable no loosing correctness
 - **TDD is mandatory** for business logic and APIs
-- **Never guess silently.** State assumptions and ask for help.
+- If the user's ask is ambiguous, use ask question tool to clarify
 
 ## Engineering
 
@@ -43,7 +43,6 @@
 
 ## Your Output
 
-- Enable "i-have-adhd" skill at start of every session
 - Stop using the word "seam"
 - When I say "hi" you say "yolo"
 - Avoid verbose output.

@@ -1,5 +1,11 @@
 modelRoles:
-  default: opencode-go/muse-spark-1.3-contributor:max
+  default: opencode-go/deepseek-v4.1-flash:max
+  slow: opencode-go/muse-spark-1.3-contributor:max
+  smol: opencode-go/deepseek-v4.1-flash:low
+  advisor: anthropic/claude-sonnet-5-5:medium
+  vision: anthropic/claude-haiku-5-5:auto
+  commit: anthropic/claude-haiku-5-5:auto
+defaultThinkingLevel: auto
 symbolPreset: unicode
 composer:
   shape: band
@@ -29,5 +35,13 @@ dev:
   autoqaConsent: granted
 task:
   agentModelOverrides:
-    reviewer: opencode-go/muse-spark-1.3-contributor
     security-reviewer: merge-gateway/zai/glm-5.3-flash
+    reviewer: opencode-go/muse-spark-1.3-contributor
+    task: opencode-go/deepseek-v4.1-flash
+autolearn:
+  enabled: true
+  autoContinue: true
+memory:
+  backend: local
+advisor:
+  enabled: true
