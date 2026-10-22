@@ -35,6 +35,11 @@
 - One logical change per commit. Don't bulk unrelated changes.
 - Don't commit until validation is complete.
 
+## Code Reviews
+
+- Run sub-agent reviews through herdr: open a **tab** (not a pane) for the reviewer, start an `opencode` agent in it, and close that tab when the review is done.
+- Review agents run with the model `opencode-go/deepseek-v4.1-flash`.
+
 ## Browser Automation
 
 - Use `playwright-cli` for browser tasks (not MCP)
